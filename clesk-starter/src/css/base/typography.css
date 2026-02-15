@@ -1,0 +1,39 @@
+/* Base typography styles */
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: var(--color-text);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-heading);
+    line-height: 1.2;
+}
+
+a:not([class*="clesk-btn"]) {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:not([class*="clesk-btn"]):hover {
+    color: var(--color-primary-hover);
+}
+
+/* WordPress navigation menu links */
+.menu-item a {
+    color: var(--color-text);
+    font-weight: 500;
+    transition: color var(--transition-fast);
+}
+
+.menu-item a:hover {
+    color: var(--color-primary);
+}
+
+.current-menu-item a {
+    color: var(--color-primary);
+}

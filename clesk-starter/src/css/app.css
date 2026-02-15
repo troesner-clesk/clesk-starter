@@ -1,0 +1,262 @@
+@import './base/tokens.css';
+@import './base/reset.css';
+@import './base/typography.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .clesk-section {
+        @apply py-16 lg:py-24;
+    }
+
+    .clesk-container {
+        @apply max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8;
+    }
+
+    .clesk-btn-primary {
+        @apply inline-block rounded-lg bg-[var(--color-primary)] px-8 py-3 text-base font-semibold text-white shadow-sm hover:bg-[var(--color-primary-hover)] transition-colors duration-200;
+    }
+
+    .clesk-btn-secondary {
+        @apply inline-block rounded-lg border-2 border-[var(--color-primary)] px-8 py-3 text-base font-semibold text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white transition-colors duration-200;
+    }
+
+    .clesk-heading-1 {
+        @apply text-4xl font-bold tracking-tight text-[var(--color-heading)] sm:text-5xl lg:text-6xl;
+    }
+
+    .clesk-heading-2 {
+        @apply text-3xl font-bold tracking-tight text-[var(--color-heading)] sm:text-4xl;
+    }
+
+    .clesk-heading-3 {
+        @apply text-2xl font-bold text-[var(--color-heading)];
+    }
+
+    .clesk-body-text {
+        @apply text-lg text-[var(--color-text)] leading-relaxed;
+    }
+}
+
+/* WordPress Admin Bar offset for sticky header */
+.admin-bar .clesk-header {
+    top: 32px;
+}
+@media screen and (max-width: 782px) {
+    .admin-bar .clesk-header {
+        top: 46px;
+    }
+}
+
+/* Transparent header: scrolled state */
+.clesk-header--transparent.clesk-header--scrolled {
+    background-color: var(--color-background);
+    border-bottom-color: var(--color-border);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.clesk-header--transparent.clesk-header--scrolled .clesk-header-logo-link {
+    color: var(--color-heading);
+}
+
+.clesk-header--transparent.clesk-header--scrolled .clesk-header-logo-link:hover {
+    color: var(--color-primary);
+}
+
+.clesk-header--transparent.clesk-header--scrolled .clesk-mobile-toggle {
+    color: var(--color-text-muted);
+}
+
+.clesk-header--transparent.clesk-header--scrolled .clesk-desktop-menu .clesk-menu-item > a {
+    color: var(--color-text);
+}
+
+.clesk-header--transparent.clesk-header--scrolled .clesk-desktop-menu .clesk-menu-item > a:hover {
+    color: var(--color-primary);
+}
+
+/* Transparent header: initial state nav link colors */
+.clesk-header--transparent:not(.clesk-header--scrolled) .clesk-desktop-menu .clesk-menu-item > a {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.clesk-header--transparent:not(.clesk-header--scrolled) .clesk-desktop-menu .clesk-menu-item > a:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Transparent header: content offset */
+body.has-transparent-header {
+    padding-top: 0;
+}
+
+body.has-transparent-header > main:first-of-type,
+body.has-transparent-header > .clesk-section:first-of-type {
+    margin-top: -64px;
+    padding-top: 64px;
+}
+
+/* Desktop dropdown: remove default list styles */
+.clesk-desktop-menu .clesk-menu-item ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Footer link styles */
+.clesk-footer a {
+    color: var(--color-text-muted);
+    transition: color 0.2s;
+}
+
+.clesk-footer a:hover {
+    color: var(--color-primary);
+}
+
+.clesk-footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Mobile menu: remove default summary marker */
+.clesk-mobile-menu details > summary {
+    list-style: none;
+}
+
+.clesk-mobile-menu details > summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Contact Form 7 styling */
+.wpcf7 input[type="text"],
+.wpcf7 input[type="email"],
+.wpcf7 input[type="url"],
+.wpcf7 input[type="tel"],
+.wpcf7 input[type="number"],
+.wpcf7 input[type="date"],
+.wpcf7 select,
+.wpcf7 textarea {
+    display: block;
+    width: 100%;
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md, 0.5rem);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.wpcf7 input[type="text"]:focus,
+.wpcf7 input[type="email"]:focus,
+.wpcf7 input[type="url"]:focus,
+.wpcf7 input[type="tel"]:focus,
+.wpcf7 input[type="number"]:focus,
+.wpcf7 input[type="date"]:focus,
+.wpcf7 select:focus,
+.wpcf7 textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.wpcf7 textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.wpcf7 p {
+    margin-bottom: 1rem;
+}
+
+.wpcf7 input[type="submit"] {
+    cursor: pointer;
+}
+
+/* CF7 validation messages */
+.wpcf7-not-valid-tip {
+    color: var(--color-error, #ef4444);
+    font-size: 0.8125rem;
+    margin-top: 0.25rem;
+}
+
+.wpcf7 .wpcf7-response-output {
+    margin: 1rem 0 0;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-md, 0.5rem);
+    font-size: 0.875rem;
+}
+
+.wpcf7 .wpcf7-mail-sent-ok {
+    border-color: #22c55e;
+    background-color: #f0fdf4;
+    color: #166534;
+}
+
+.wpcf7 .wpcf7-validation-errors,
+.wpcf7 .wpcf7-spam-blocked {
+    border-color: #ef4444;
+    background-color: #fef2f2;
+    color: #991b1b;
+}
+
+.wpcf7-not-valid {
+    border-color: var(--color-error, #ef4444) !important;
+}
+
+/* Hero carousel infinite scroll */
+@keyframes clesk-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.clesk-hero-carousel:hover .clesk-hero-carousel-track {
+    animation-play-state: paused;
+}
+
+/* Video modal overlay */
+.clesk-video-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.clesk-video-modal iframe {
+    width: 90vw;
+    max-width: 960px;
+    aspect-ratio: 16 / 9;
+    border-radius: 0.75rem;
+    border: none;
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Offset scroll targets for sticky header */
+[id] {
+    scroll-margin-top: 5rem;
+}
+
+.admin-bar [id] {
+    scroll-margin-top: 7rem;
+}
+
+@media screen and (max-width: 782px) {
+    .admin-bar [id] {
+        scroll-margin-top: 7.875rem;
+    }
+}
