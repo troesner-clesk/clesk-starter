@@ -1,0 +1,61 @@
+:root {
+    /* ===== Colors ===== */
+    --color-primary: #3b82f6;
+    --color-primary-hover: #2563eb;
+    --color-primary-light: #dbeafe;
+    --color-secondary: #10b981;
+    --color-secondary-hover: #059669;
+
+    --color-heading: #111827;
+    --color-text: #374151;
+    --color-text-muted: #6b7280;
+    --color-text-light: #9ca3af;
+
+    --color-background: #ffffff;
+    --color-surface: #f9fafb;
+    --color-surface-dark: #f3f4f6;
+    --color-border: #e5e7eb;
+
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+
+    /* ===== Typography ===== */
+    --font-heading: 'Inter', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    --font-size-5xl: 3rem;
+
+    /* ===== Spacing ===== */
+    --section-padding-y: 4rem;
+    --section-padding-y-lg: 6rem;
+    --container-max-width: 85rem;
+    --container-padding-x: 1rem;
+
+    /* ===== Border Radius ===== */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-full: 9999px;
+
+    /* ===== Shadows ===== */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+
+    /* ===== Transitions ===== */
+    --transition-fast: 150ms ease;
+    --transition-normal: 200ms ease;
+    --transition-slow: 300ms ease;
+}

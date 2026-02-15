@@ -1,0 +1,30 @@
+/* Minimal reset – Tailwind's preflight handles most of this */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Remove WordPress admin bar top margin in dev */
+html {
+    margin-top: 0 !important;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Focus styles */
+:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
