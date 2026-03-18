@@ -23,15 +23,17 @@ A modular, component-based WordPress parent theme built for agencies. Ship clien
 
 ## Installation
 
-1. Download or clone this repository into `wp-content/themes/`:
-   ```bash
-   cd wp-content/themes
-   git clone https://github.com/troesner-clesk/clesk-starter.git
-   ```
+1. **[Download clesk-starter.zip](https://github.com/troesner-clesk/clesk-starter/releases/latest/download/clesk-starter.zip)** from the latest release
 
-2. Install and activate the **SCF** plugin in WordPress Admin
+2. In WordPress Admin go to **Appearance > Themes > Add New > Upload Theme** and upload the ZIP file
 
-3. Activate the theme (or a child theme) in **Appearance > Themes**
+3. Install and activate the **SCF** plugin
+
+4. Activate the theme (or a child theme) in **Appearance > Themes**
+
+5. Configure components in **Clesk Framework** admin page
+
+> **Important:** Use the download link above. Do not use GitHub's green "Code > Download ZIP" button — it creates a folder name that WordPress won't recognize.
 
 4. Configure components in **Clesk Framework** admin page
 
