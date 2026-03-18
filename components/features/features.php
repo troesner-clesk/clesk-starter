@@ -143,6 +143,12 @@ $default_icons = array('blocks.svg', 'palette.svg', 'shield.svg', 'bolt.svg', 'c
                     </div>
                 <?php endforeach; ?>
             </div>
+
+            <?php if ($cta_text && $cta_link) : ?>
+                <div class="mt-12 text-center">
+                    <a href="<?php echo esc_url($cta_link); ?>" class="clesk-btn-primary"><?php echo esc_html($cta_text); ?></a>
+                </div>
+            <?php endif; ?>
         </div>
     </section>
 
@@ -235,6 +241,12 @@ $default_icons = array('blocks.svg', 'palette.svg', 'shield.svg', 'bolt.svg', 'c
                     <?php endif; ?>
                 <?php endforeach; ?>
             </div>
+
+            <?php if ($cta_text && $cta_link) : ?>
+                <div class="mt-12 text-center">
+                    <a href="<?php echo esc_url($cta_link); ?>" class="clesk-btn-primary"><?php echo esc_html($cta_text); ?></a>
+                </div>
+            <?php endif; ?>
 
         </div>
     </section>
