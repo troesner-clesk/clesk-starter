@@ -96,3 +96,30 @@ function clesk_remove_patterns_menu() {
     remove_submenu_page('themes.php', 'edit.php?post_type=wp_block');
 }
 add_action('admin_menu', 'clesk_remove_patterns_menu');
+
+/**
+ * Show admin notice if SCF (Secure Custom Fields) is not installed
+ *
+ * SCF is required for the page builder components to work.
+ */
+function clesk_scf_admin_notice() {
+    if (class_exists('ACF')) {
+        return;
+    }
+
+    $install_url = admin_url('plugin-install.php?s=secure+custom+fields&tab=search&type=term');
+    ?>
+    <div class="notice notice-error">
+        <p>
+            <strong>Clesk Starter:</strong>
+            <?php
+            printf(
+                esc_html__('This theme requires the %s plugin to work. The page builder components will not appear without it.', 'clesk-starter'),
+                '<a href="' . esc_url($install_url) . '">Secure Custom Fields (SCF)</a>'
+            );
+            ?>
+        </p>
+    </div>
+    <?php
+}
+add_action('admin_notices', 'clesk_scf_admin_notice');
