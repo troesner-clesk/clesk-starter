@@ -173,7 +173,7 @@ $video_url        = get_sub_field('hero_video_url');
         <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
 
             <?php if ($style === 'centered') : ?>
-                <div class="text-center max-w-3xl mx-auto">
+                <div class="text-center max-w-[80%] mx-auto break-words">
                     <?php if ($headline) : ?>
                         <h1 class="clesk-heading-1">
                             <?php echo wp_kses_post($headline); ?>
