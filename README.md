@@ -134,4 +134,4 @@ GPL-2.0-or-later. See [LICENSE](LICENSE).
 
 ## Credits
 
-Built by [Clesk Digital](https://clesk.de). Uses [Tailwind CSS](https://tailwindcss.com), [Preline UI](https://preline.co) (design reference), and [Vite](https://vite.dev).
+Built by [Clesk Digital GmbH](https://clesk.de). Uses [Tailwind CSS](https://tailwindcss.com), [Preline UI](https://preline.co) (design reference), and [Vite](https://vite.dev).
