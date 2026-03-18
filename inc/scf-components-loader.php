@@ -54,6 +54,26 @@ function clesk_flexible_content_layout_title($title, $field, $layout, $i) {
 }
 add_filter('acf/fields/flexible_content/layout_title', 'clesk_flexible_content_layout_title', 10, 4);
 
+/**
+ * Collapse all Flexible Content layouts by default on page load
+ */
+function clesk_collapse_flexible_content() {
+    ?>
+    <script>
+    (function() {
+        if (typeof acf === 'undefined') return;
+        acf.addAction('ready', function() {
+            document.querySelectorAll('.acf-flexible-content .layout:not(.-collapsed)').forEach(function(el) {
+                var toggle = el.querySelector('.acf-fc-layout-controls .-collapse');
+                if (toggle) toggle.click();
+            });
+        });
+    })();
+    </script>
+    <?php
+}
+add_action('acf/input/admin_footer', 'clesk_collapse_flexible_content');
+
 function clesk_render_components() {
     if (!have_rows('clesk_components')) {
         return;
