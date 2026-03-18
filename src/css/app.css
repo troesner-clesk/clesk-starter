@@ -40,6 +40,12 @@
     }
 }
 
+/* Custom logo: constrain to header height */
+.custom-logo {
+    max-height: 3rem;
+    width: auto;
+}
+
 /* WordPress Admin Bar offset for sticky header */
 .admin-bar .clesk-header {
     top: 32px;
