@@ -39,6 +39,7 @@ function clesk_flexible_content_layout_title($title, $field, $layout, $i) {
         'newsletter'     => 'newsletter_style',
         'pricing'        => 'pricing_style',
         'map'            => 'map_style',
+        'tabs'           => 'tabs_style',
     );
 
     $layout_name = $layout['name'] ?? '';

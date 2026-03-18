@@ -260,6 +260,14 @@ function clesk_get_all_components() {
             ),
             'available'   => true,
         ),
+        'tabs' => array(
+            'label'       => 'Tabs',
+            'description' => 'Tabbed content with cards or image-text layouts per tab',
+            'variants'    => array(
+                'horizontal' => 'Horizontal',
+            ),
+            'available'   => true,
+        ),
     );
 }
 
