@@ -736,6 +736,153 @@ if (function_exists('acf_add_local_field_group')) {
         ),
     );
 
+    // --- TABS ---
+    $all_layouts['tabs'] = array(
+        'key' => 'layout_tabs',
+        'name' => 'tabs',
+        'label' => 'Tabs',
+        'display' => 'block',
+        'sub_fields' => array(
+            // Style (index 0 — required for variant filtering)
+            array(
+                'key' => 'field_tabs_style',
+                'label' => 'Style',
+                'name' => 'tabs_style',
+                'type' => 'select',
+                'choices' => array(
+                    'horizontal' => 'Horizontal',
+                ),
+                'default_value' => 'horizontal',
+            ),
+            // Section headline
+            array(
+                'key' => 'field_tabs_headline',
+                'label' => 'Headline',
+                'name' => 'tabs_headline',
+                'type' => 'text',
+            ),
+            // Section subheadline
+            array(
+                'key' => 'field_tabs_subheadline',
+                'label' => 'Subheadline',
+                'name' => 'tabs_subheadline',
+                'type' => 'text',
+            ),
+            // Tabs repeater
+            array(
+                'key' => 'field_tabs_items',
+                'label' => 'Tabs',
+                'name' => 'tabs_items',
+                'type' => 'repeater',
+                'layout' => 'block',
+                'button_label' => 'Add Tab',
+                'sub_fields' => array(
+                    // Tab title
+                    array(
+                        'key' => 'field_tabs_item_title',
+                        'label' => 'Tab Title',
+                        'name' => 'tab_title',
+                        'type' => 'text',
+                    ),
+                    // Layout chooser
+                    array(
+                        'key' => 'field_tabs_item_layout',
+                        'label' => 'Content Layout',
+                        'name' => 'tab_layout',
+                        'type' => 'select',
+                        'choices' => array(
+                            'cards'      => 'Cards Grid',
+                            'image-text' => 'Image + Text',
+                        ),
+                        'default_value' => 'cards',
+                    ),
+                    // --- Cards layout fields ---
+                    array(
+                        'key' => 'field_tabs_item_cards',
+                        'label' => 'Cards',
+                        'name' => 'tab_cards',
+                        'type' => 'repeater',
+                        'layout' => 'block',
+                        'button_label' => 'Add Card',
+                        'conditional_logic' => array(
+                            array(
+                                array(
+                                    'field' => 'field_tabs_item_layout',
+                                    'operator' => '==',
+                                    'value' => 'cards',
+                                ),
+                            ),
+                        ),
+                        'sub_fields' => array(
+                            array('key' => 'field_tabs_card_icon', 'label' => 'Icon / Image', 'name' => 'tab_card_icon', 'type' => 'image', 'return_format' => 'array', 'preview_size' => 'thumbnail'),
+                            array('key' => 'field_tabs_card_title', 'label' => 'Title', 'name' => 'tab_card_title', 'type' => 'text'),
+                            array('key' => 'field_tabs_card_text', 'label' => 'Description', 'name' => 'tab_card_text', 'type' => 'textarea'),
+                        ),
+                    ),
+                    // --- Image + Text layout fields ---
+                    array(
+                        'key' => 'field_tabs_item_image',
+                        'label' => 'Image',
+                        'name' => 'tab_image',
+                        'type' => 'image',
+                        'return_format' => 'array',
+                        'preview_size' => 'medium',
+                        'conditional_logic' => array(
+                            array(
+                                array(
+                                    'field' => 'field_tabs_item_layout',
+                                    'operator' => '==',
+                                    'value' => 'image-text',
+                                ),
+                            ),
+                        ),
+                    ),
+                    array(
+                        'key' => 'field_tabs_item_image_position',
+                        'label' => 'Image Position',
+                        'name' => 'tab_image_position',
+                        'type' => 'select',
+                        'choices' => array(
+                            'left'  => 'Image Left',
+                            'right' => 'Image Right',
+                        ),
+                        'default_value' => 'left',
+                        'conditional_logic' => array(
+                            array(
+                                array(
+                                    'field' => 'field_tabs_item_layout',
+                                    'operator' => '==',
+                                    'value' => 'image-text',
+                                ),
+                            ),
+                        ),
+                    ),
+                    array(
+                        'key' => 'field_tabs_item_text',
+                        'label' => 'Text',
+                        'name' => 'tab_text',
+                        'type' => 'wysiwyg',
+                        'toolbar' => 'basic',
+                        'media_upload' => 0,
+                        'delay' => 1,
+                        'conditional_logic' => array(
+                            array(
+                                array(
+                                    'field' => 'field_tabs_item_layout',
+                                    'operator' => '==',
+                                    'value' => 'image-text',
+                                ),
+                            ),
+                        ),
+                    ),
+                    // --- CTA Button (both layouts) ---
+                    array('key' => 'field_tabs_item_cta_text', 'label' => 'Button Text', 'name' => 'tab_cta_text', 'type' => 'text'),
+                    array('key' => 'field_tabs_item_cta_link', 'label' => 'Button Link', 'name' => 'tab_cta_link', 'type' => 'text', 'placeholder' => 'https://… or #anchor'),
+                ),
+            ),
+        ),
+    );
+
     // No active components = no layouts shown
     if (empty($active_components)) {
         return;
