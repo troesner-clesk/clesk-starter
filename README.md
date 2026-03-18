@@ -11,7 +11,6 @@ A modular, component-based WordPress parent theme built for agencies. Ship clien
 - **No build step for child themes** — plain CSS, no Node.js required
 - **SCF (Secure Custom Fields)** powered — free, ACF-compatible
 - **Tailwind CSS 3.4** — utility-first CSS with minimal output (~56 kB)
-- **Vite 5** — fast builds and HMR during development
 - **Security hardened** — output escaping, version hiding, XML-RPC disabled
 - **No jQuery** — vanilla JS only, lightweight frontend
 
@@ -20,7 +19,6 @@ A modular, component-based WordPress parent theme built for agencies. Ship clien
 - WordPress 6.0+
 - [SCF (Secure Custom Fields)](https://wordpress.org/plugins/secure-custom-fields/) — free plugin
 - PHP 8.0+
-- Node.js 18+ (only for parent theme development)
 - [Contact Form 7](https://wordpress.org/plugins/contact-form-7/) (optional, for form components)
 
 ## Installation
@@ -31,17 +29,11 @@ A modular, component-based WordPress parent theme built for agencies. Ship clien
    git clone https://github.com/troesner-clesk/clesk-starter.git
    ```
 
-2. Install dependencies and build:
-   ```bash
-   cd clesk-starter
-   npm install && npm run build
-   ```
+2. Install and activate the **SCF** plugin in WordPress Admin
 
-3. Install and activate the **SCF** plugin in WordPress Admin
+3. Activate the theme (or a child theme) in **Appearance > Themes**
 
-4. Activate the theme (or a child theme) in **Appearance > Themes**
-
-5. Configure components in **Clesk Framework** admin page
+4. Configure components in **Clesk Framework** admin page
 
 ## Child Theme
 
@@ -116,22 +108,10 @@ Configured in **Clesk Framework > Header & Footer**.
 - Mega menus (add CSS class `mega-menu` to a top-level menu item)
 - Mobile accordion (`<details>`/`<summary>`, no JS)
 
-## Development
-
-```bash
-npm run dev    # Vite dev server with HMR (port 5173)
-npm run build  # Production build to dist/
-```
-
-For Vite HMR, add to `wp-config.php`:
-```php
-define('CLESK_DEV_MODE', true);
-```
-
 ## License
 
 GPL-2.0-or-later. See [LICENSE](LICENSE).
 
 ## Credits
 
-Built by [Clesk Digital GmbH](https://clesk.de). Uses [Tailwind CSS](https://tailwindcss.com), [Preline UI](https://preline.co) (design reference), and [Vite](https://vite.dev).
+Built by [Clesk Digital GmbH](https://clesk.de). Uses [Tailwind CSS](https://tailwindcss.com) and [Preline UI](https://preline.co) (design reference).
