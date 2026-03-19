@@ -309,7 +309,7 @@ function clesk_options_page_html() {
         update_option('clesk_footer_variant', sanitize_text_field($_POST['clesk_footer_variant'] ?? 'default'));
 
         $social = array();
-        $platforms = array('facebook', 'instagram', 'linkedin', 'twitter', 'youtube');
+        $platforms = array('facebook', 'instagram', 'linkedin', 'twitter', 'youtube', 'xing');
         foreach ($platforms as $platform) {
             $social[$platform] = isset($_POST['clesk_social'][$platform])
                 ? esc_url_raw($_POST['clesk_social'][$platform])
@@ -485,6 +485,7 @@ function clesk_render_header_footer_tab() {
         'linkedin'  => 'LinkedIn',
         'twitter'   => 'Twitter / X',
         'youtube'   => 'YouTube',
+        'xing'      => 'Xing',
     );
     ?>
     <form method="post">
