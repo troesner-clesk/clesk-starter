@@ -483,9 +483,9 @@ function clesk_render_header_footer_tab() {
         'facebook'  => 'Facebook',
         'instagram' => 'Instagram',
         'linkedin'  => 'LinkedIn',
+        'xing'      => 'Xing',
         'twitter'   => 'Twitter / X',
         'youtube'   => 'YouTube',
-        'xing'      => 'Xing',
     );
     ?>
     <form method="post">
