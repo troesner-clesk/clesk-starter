@@ -37,6 +37,14 @@
 
     .clesk-body-text {
         @apply text-lg text-[var(--color-text)] leading-relaxed;
+
+        ul { @apply list-disc pl-6 space-y-1; }
+        ol { @apply list-decimal pl-6 space-y-1; }
+        h3 { @apply text-xl font-bold text-[var(--color-heading)] mt-6 mb-2; }
+        h4 { @apply text-lg font-semibold text-[var(--color-heading)] mt-4 mb-2; }
+        p + p { @apply mt-4; }
+        a { @apply text-[var(--color-primary)] hover:underline; }
+        strong { @apply font-semibold; }
     }
 }
 
