@@ -12,9 +12,13 @@ if (!defined('ABSPATH')) exit;
         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <!-- Footer info -->
             <div>
-                <a href="<?php echo esc_url(home_url('/')); ?>" class="text-lg font-bold text-[var(--color-heading)] font-[var(--font-heading)]">
-                    <?php echo esc_html(get_bloginfo('name')); ?>
-                </a>
+                <?php if (has_custom_logo()) : ?>
+                    <div class="mb-3"><?php the_custom_logo(); ?></div>
+                <?php else : ?>
+                    <a href="<?php echo esc_url(home_url('/')); ?>" class="text-lg font-bold text-[var(--color-heading)] font-[var(--font-heading)]">
+                        <?php echo esc_html(get_bloginfo('name')); ?>
+                    </a>
+                <?php endif; ?>
                 <p class="mt-1 text-sm text-[var(--color-text-muted)]">
                     <?php echo esc_html(get_bloginfo('description')); ?>
                 </p>
