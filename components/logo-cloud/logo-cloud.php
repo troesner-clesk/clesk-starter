@@ -91,7 +91,7 @@ $placeholder_logo = get_template_directory_uri() . '/assets/images/placeholder-4
 
             <div class="overflow-hidden">
                 <div class="flex items-center gap-12"
-                     style="animation: <?php echo esc_attr($marquee_id); ?>-scroll 20s linear infinite; width: max-content;">
+                     style="animation: <?php echo esc_attr($marquee_id); ?>-scroll 40s linear infinite; width: max-content;">
                     <?php for ($repeat = 0; $repeat < 2; $repeat++) : ?>
                         <?php foreach ($logos as $logo_item) :
                             $logo = $logo_item['lc_logo'] ?? null;
