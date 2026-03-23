@@ -4,7 +4,7 @@ A modular, component-based WordPress parent theme built for agencies. Ship clien
 
 ## Features
 
-- **22 page builder components** with 65+ style variants
+- **23 page builder components** with 67 style variants
 - **Design token system** via CSS Custom Properties — change colors, fonts, spacing, and more
 - **3 header + 3 footer variants** — configurable from the admin
 - **Child theme ready** — copy the boilerplate, set your tokens, done
@@ -13,6 +13,17 @@ A modular, component-based WordPress parent theme built for agencies. Ship clien
 - **Tailwind CSS 3.4** — utility-first CSS with minimal output (~56 kB)
 - **Security hardened** — output escaping, version hiding, XML-RPC disabled
 - **No jQuery** — vanilla JS only, lightweight frontend
+
+## Documentation
+
+Full documentation available in the **[Wiki](https://github.com/troesner-clesk/clesk-starter/wiki)** (German):
+
+- [Erste Schritte](https://github.com/troesner-clesk/clesk-starter/wiki/Erste-Schritte) — Installation & Setup
+- [Design Tokens](https://github.com/troesner-clesk/clesk-starter/wiki/Design-Tokens) — All 42 CSS Custom Properties
+- [Komponenten](https://github.com/troesner-clesk/clesk-starter/wiki/Komponenten) — All 23 components with fields & tips
+- [Header & Footer](https://github.com/troesner-clesk/clesk-starter/wiki/Header-und-Footer) — Variants, menus, social links
+- [Child Theme](https://github.com/troesner-clesk/clesk-starter/wiki/Child-Theme) — Customization guide
+- [Troubleshooting](https://github.com/troesner-clesk/clesk-starter/wiki/Troubleshooting) — Common issues & fixes
 
 ## Requirements
 
@@ -34,8 +45,6 @@ A modular, component-based WordPress parent theme built for agencies. Ship clien
 5. Configure components in **Clesk Framework** admin page
 
 > **Important:** Use the download link above. Do not use GitHub's green "Code > Download ZIP" button — it creates a folder name that WordPress won't recognize.
-
-4. Configure components in **Clesk Framework** admin page
 
 ## Child Theme
 
@@ -66,7 +75,7 @@ For client projects, use the [Clesk Starter Child](https://github.com/troesner-c
 | **Steps** | numbered, icon, connector |
 | **Timeline** | vertical, alternating, horizontal |
 | **Team** | grid, cards, list |
-| **FAQ** | simple, bordered, two-columns |
+| **FAQ** | simple, bordered, two-columns, with-image |
 | **Banner** | info, warning, promo |
 | **Video** | simple, overlay, background |
 | **Gallery** | grid, masonry, slider |
@@ -76,8 +85,9 @@ For client projects, use the [Clesk Starter Child](https://github.com/troesner-c
 | **Contact Form** | simple, split, with-info |
 | **Map** | google-maps, openstreetmap |
 | **Spacer** | empty, line, wave |
+| **Tabs** | horizontal |
 
-All components are activated/deactivated in **Clesk Framework > Components**.
+All components are activated/deactivated in **Clesk Framework > Components**. See the [Wiki](https://github.com/troesner-clesk/clesk-starter/wiki/Komponenten) for detailed field documentation per component.
 
 ## Design Tokens
 
@@ -96,7 +106,7 @@ Override these CSS Custom Properties in your child theme's `custom.css`:
 | `--radius-lg` | `0.75rem` | Cards, modals |
 | `--section-padding-y` | `4rem` | Section vertical padding |
 
-See the child theme's `custom.css` for the complete token reference.
+See the child theme's `custom.css` for the complete token reference, or the [Design Tokens Wiki page](https://github.com/troesner-clesk/clesk-starter/wiki/Design-Tokens) for all 42 tokens.
 
 ## Header & Footer
 
@@ -116,4 +126,9 @@ GPL-2.0-or-later. See [LICENSE](LICENSE).
 
 ## Credits
 
-Built by [Clesk Digital GmbH](https://clesk.de). Uses [Tailwind CSS](https://tailwindcss.com) and [Preline UI](https://preline.co) (design reference).
+Built by [Clesk Digital](https://clesk.de).
+
+- [GitHub](https://github.com/troesner-clesk)
+- [LinkedIn](https://www.linkedin.com/in/tobias-roesner/)
+
+Uses [Tailwind CSS](https://tailwindcss.com) and [Preline UI](https://preline.co) (design reference).
