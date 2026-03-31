@@ -6,14 +6,14 @@ if (!defined('ABSPATH')) exit;
  * Variants: image-left, image-right
  */
 
-$layout   = get_sub_field('ti_layout') ?: 'image-right';
+$style    = get_sub_field('ti_layout') ?: 'image-right';
 $headline = get_sub_field('ti_headline');
 $text     = get_sub_field('ti_text');
 $image    = get_sub_field('ti_image');
 $cta_text = get_sub_field('ti_cta_text');
 $cta_link = get_sub_field('ti_cta_link');
 
-$image_order = ($layout === 'image-left') ? 'lg:order-first' : 'lg:order-last';
+$image_order = ($style === 'image-left') ? 'lg:order-first' : 'lg:order-last';
 ?>
 
 <section class="clesk-text-image clesk-section bg-[var(--color-background)]">

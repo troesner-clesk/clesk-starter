@@ -85,4 +85,93 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 100);
         }
     }
+
+    // Accordion – toggle items independently with height animation
+    document.querySelectorAll('.clesk-accordion-toggle').forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const item = btn.closest('.clesk-accordion-item');
+            const content = item.querySelector('.clesk-accordion-content');
+            const iconOpen = btn.querySelector('.clesk-icon-open');
+            const iconClose = btn.querySelector('.clesk-icon-close');
+            const isOpen = item.classList.contains('active');
+
+            if (isOpen) {
+                content.style.height = content.scrollHeight + 'px';
+                requestAnimationFrame(() => {
+                    content.style.height = '0px';
+                });
+                content.addEventListener('transitionend', () => {
+                    if (!item.classList.contains('active')) {
+                        content.classList.add('hidden');
+                        content.style.height = '';
+                    }
+                }, { once: true });
+                item.classList.remove('active');
+                btn.setAttribute('aria-expanded', 'false');
+            } else {
+                content.classList.remove('hidden');
+                content.style.height = '0px';
+                requestAnimationFrame(() => {
+                    content.style.height = content.scrollHeight + 'px';
+                });
+                content.addEventListener('transitionend', () => {
+                    content.style.height = '';
+                }, { once: true });
+                item.classList.add('active');
+                btn.setAttribute('aria-expanded', 'true');
+            }
+
+            if (iconOpen) iconOpen.classList.toggle('hidden');
+            if (iconClose) iconClose.classList.toggle('hidden');
+        });
+    });
+
+    // Tabs – switch panels with keyboard navigation
+    document.querySelectorAll('.clesk-tabs [role="tablist"]').forEach((tablist) => {
+        const tabs = tablist.querySelectorAll('[role="tab"]');
+        const panels = tablist.closest('.clesk-tabs').querySelectorAll('[role="tabpanel"]');
+
+        function activateTab(tab) {
+            tabs.forEach((t) => {
+                t.classList.remove('active');
+                t.setAttribute('aria-selected', 'false');
+                t.setAttribute('tabindex', '-1');
+            });
+            panels.forEach((p) => p.classList.add('hidden'));
+
+            tab.classList.add('active');
+            tab.setAttribute('aria-selected', 'true');
+            tab.removeAttribute('tabindex');
+
+            const panelId = tab.getAttribute('aria-controls');
+            const panel = document.getElementById(panelId);
+            if (panel) panel.classList.remove('hidden');
+        }
+
+        tabs.forEach((tab) => {
+            tab.addEventListener('click', () => activateTab(tab));
+        });
+
+        tablist.addEventListener('keydown', (e) => {
+            const tabArray = Array.from(tabs);
+            const currentIndex = tabArray.indexOf(document.activeElement);
+            let newIndex;
+
+            if (e.key === 'ArrowRight') newIndex = (currentIndex + 1) % tabArray.length;
+            else if (e.key === 'ArrowLeft') newIndex = (currentIndex - 1 + tabArray.length) % tabArray.length;
+            else if (e.key === 'Home') newIndex = 0;
+            else if (e.key === 'End') newIndex = tabArray.length - 1;
+            else return;
+
+            e.preventDefault();
+            tabArray[newIndex].focus();
+            activateTab(tabArray[newIndex]);
+        });
+
+        tabs.forEach((tab, i) => {
+            if (i > 0 && !tab.classList.contains('active')) {
+                tab.setAttribute('tabindex', '-1');
+            }
+        });
+    });
 });

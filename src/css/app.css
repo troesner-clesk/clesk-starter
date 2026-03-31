@@ -35,6 +35,16 @@
         @apply text-2xl font-bold text-[var(--color-heading)];
     }
 
+    /* Tab active state */
+    .clesk-tabs [role="tab"].active {
+        background-color: var(--color-primary);
+        color: white;
+    }
+
+    .clesk-tabs [role="tab"].active:hover {
+        background-color: var(--color-primary-hover);
+    }
+
     .clesk-body-text {
         @apply text-lg text-[var(--color-text)] leading-relaxed;
 

@@ -52,14 +52,5 @@ function clesk_enqueue_assets() {
             );
         }
     }
-
-    // Preline JS via CDN — pinned to specific version for security
-    wp_enqueue_script(
-        'preline',
-        'https://cdn.jsdelivr.net/npm/preline@2.6.0/dist/preline.min.js',
-        array(),
-        '2.6.0',
-        true
-    );
 }
 add_action('wp_enqueue_scripts', 'clesk_enqueue_assets');

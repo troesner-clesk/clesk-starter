@@ -15,6 +15,9 @@ $cta_link         = get_sub_field('hero_cta_link');
 $style            = get_sub_field('hero_style') ?: 'centered';
 $carousel_images  = get_sub_field('hero_carousel_images');
 $video_url        = get_sub_field('hero_video_url');
+
+// Skip rendering if no content fields are filled
+if (!$headline && !$subheadline && !$text && !$image && !$carousel_images && !$video_url) return;
 ?>
 
 <?php if ($style === 'text-on-image') : ?>

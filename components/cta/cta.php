@@ -9,14 +9,17 @@ if (!defined('ABSPATH')) exit;
 $style       = get_sub_field('cta_style') ?: 'simple';
 $headline    = get_sub_field('cta_headline');
 $text        = get_sub_field('cta_text');
-$button_text = get_sub_field('cta_button_text');
-$button_link = get_sub_field('cta_button_link');
+$button_text   = get_sub_field('cta_button_text');
+$button_link   = get_sub_field('cta_button_link');
+$button_text_2 = get_sub_field('cta_button_text_2');
+$button_link_2 = get_sub_field('cta_button_link_2');
 
 // Style-dependent classes
 $section_classes = 'clesk-cta clesk-section';
 $heading_classes = 'clesk-heading-2';
 $text_classes    = 'mt-4 text-lg leading-relaxed';
 $btn_classes     = 'clesk-btn-primary';
+$btn2_classes    = 'clesk-btn-secondary';
 
 switch ($style) {
     case 'highlight':
@@ -24,12 +27,14 @@ switch ($style) {
         $heading_classes  = 'text-3xl font-bold tracking-tight sm:text-4xl text-white';
         $text_classes    .= ' text-white/90';
         $btn_classes      = 'inline-block rounded-lg bg-white px-8 py-3 text-base font-semibold text-[var(--color-primary)] shadow-sm hover:bg-gray-100 transition-colors duration-200';
+        $btn2_classes     = 'clesk-btn-outline-white inline-block rounded-lg border-2 border-white px-8 py-3 text-base font-semibold text-white hover:bg-white/10 transition-colors duration-200';
         break;
     case 'dark':
         $section_classes .= ' bg-gray-900 text-white';
         $heading_classes  = 'text-3xl font-bold tracking-tight sm:text-4xl text-white';
         $text_classes    .= ' text-gray-300';
         $btn_classes      = 'clesk-btn-primary';
+        $btn2_classes     = 'clesk-btn-outline-white inline-block rounded-lg border-2 border-white px-8 py-3 text-base font-semibold text-white hover:bg-white/10 transition-colors duration-200';
         break;
     default: // simple
         $section_classes .= ' bg-[var(--color-surface)]';
@@ -53,10 +58,15 @@ switch ($style) {
             <?php endif; ?>
 
             <?php if ($button_text && $button_link) : ?>
-                <div class="mt-8">
+                <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
                     <a href="<?php echo esc_url($button_link); ?>" class="<?php echo esc_attr($btn_classes); ?>">
                         <?php echo esc_html($button_text); ?>
                     </a>
+                    <?php if ($button_text_2 && $button_link_2) : ?>
+                        <a href="<?php echo esc_url($button_link_2); ?>" class="<?php echo esc_attr($btn2_classes); ?>">
+                            <?php echo esc_html($button_text_2); ?>
+                        </a>
+                    <?php endif; ?>
                 </div>
             <?php endif; ?>
         </div>

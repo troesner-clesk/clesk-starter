@@ -6,22 +6,6 @@ if (!defined('ABSPATH')) exit;
  * Variants: simple, overlay, background
  */
 
-/**
- * Convert YouTube/Vimeo URLs to privacy-friendly embed URLs
- */
-if (!function_exists('clesk_get_embed_url')) :
-function clesk_get_embed_url($url, $source) {
-    if ($source === 'youtube') {
-        preg_match('/(?:v=|\/embed\/|youtu\.be\/)([a-zA-Z0-9_-]+)/', $url, $m);
-        return !empty($m[1]) ? 'https://www.youtube-nocookie.com/embed/' . $m[1] : '';
-    } elseif ($source === 'vimeo') {
-        preg_match('/vimeo\.com\/(\d+)/', $url, $m);
-        return !empty($m[1]) ? 'https://player.vimeo.com/video/' . $m[1] : '';
-    }
-    return $url;
-}
-endif;
-
 $style          = get_sub_field('video_style') ?: 'simple';
 $headline       = get_sub_field('vid_headline');
 $subheadline    = get_sub_field('vid_subheadline');

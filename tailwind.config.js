@@ -4,7 +4,6 @@ module.exports = {
         './**/*.php',
         './components/**/*.php',
         './src/**/*.js',
-        'node_modules/preline/dist/*.js',
     ],
     theme: {
         extend: {
@@ -47,7 +46,6 @@ module.exports = {
         },
     },
     plugins: [
-        require('preline/plugin'),
         require('@tailwindcss/typography'),
     ],
 };

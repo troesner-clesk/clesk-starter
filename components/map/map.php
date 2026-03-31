@@ -22,19 +22,7 @@ $height_map = [
 ];
 $height = $height_map[$map_height] ?? '450px';
 
-// Allowed tags for safe iframe rendering
-$allowed_tags = array(
-    'iframe' => array(
-        'src'             => true,
-        'width'           => true,
-        'height'          => true,
-        'style'           => true,
-        'frameborder'     => true,
-        'allowfullscreen' => true,
-        'loading'         => true,
-        'referrerpolicy'  => true,
-    ),
-);
+$allowed_tags = clesk_get_allowed_iframe_tags();
 ?>
 
 <section class="clesk-map clesk-section bg-[var(--color-background)]">

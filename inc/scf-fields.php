@@ -245,6 +245,19 @@ if (function_exists('acf_add_local_field_group')) {
                 'type' => 'text',
                 'placeholder' => 'https://… or #anchor',
             ),
+            array(
+                'key' => 'field_cta_button_text_2',
+                'label' => 'Secondary Button Text',
+                'name' => 'cta_button_text_2',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_cta_button_link_2',
+                'label' => 'Secondary Button Link',
+                'name' => 'cta_button_link_2',
+                'type' => 'text',
+                'placeholder' => 'https://… or #anchor',
+            ),
         ),
     );
 

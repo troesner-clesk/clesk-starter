@@ -82,7 +82,7 @@ add_action('init', 'clesk_disable_emojis');
 /**
  * ─────────────────────────────────────────────
  * 3. DEREGISTER JQUERY ON FRONTEND
- * This theme uses vanilla JS + Preline UI – zero jQuery.
+ * This theme uses vanilla JS – zero jQuery.
  * jQuery stays available in wp-admin for plugin compatibility.
  * ─────────────────────────────────────────────
  */

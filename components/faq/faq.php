@@ -2,7 +2,7 @@
 if (!defined('ABSPATH')) exit;
 /**
  * Component: FAQ / Accordion
- * Description: Expandable FAQ items using Preline's accordion
+ * Description: Expandable FAQ items with vanilla JS accordion
  * Variants: simple, bordered, two-columns, with-image
  */
 
@@ -55,17 +55,17 @@ $accordion_id = 'clesk-faq-' . uniqid();
                             $item_id = $accordion_id . '-' . $index;
                             $is_first = ($index === 0);
                         ?>
-                            <div class="hs-accordion <?php echo esc_attr($is_first ? 'active' : ''); ?> border-b border-[var(--color-border)]"
+                            <div class="clesk-accordion-item <?php echo esc_attr($is_first ? 'active' : ''); ?> border-b border-[var(--color-border)]"
                                  id="<?php echo esc_attr($item_id); ?>">
-                                <button class="hs-accordion-toggle py-4 px-4 inline-flex items-center justify-between gap-x-3 w-full font-semibold text-left text-[var(--color-heading)] hover:text-[var(--color-primary)] transition-colors"
+                                <button class="clesk-accordion-toggle py-4 px-4 inline-flex items-center justify-between gap-x-3 w-full font-semibold text-left text-[var(--color-heading)] hover:text-[var(--color-primary)] transition-colors"
                                         aria-expanded="<?php echo esc_attr($is_first ? 'true' : 'false'); ?>"
                                         aria-controls="<?php echo esc_attr($item_id . '-content'); ?>">
                                     <?php echo esc_html($item['faq_question']); ?>
-                                    <svg class="hs-accordion-active:hidden block shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-                                    <svg class="hs-accordion-active:block hidden shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+                                    <svg class="clesk-icon-open <?php echo esc_attr($is_first ? 'hidden' : ''); ?> shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                                    <svg class="clesk-icon-close <?php echo esc_attr($is_first ? '' : 'hidden'); ?> shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
                                 </button>
                                 <div id="<?php echo esc_attr($item_id . '-content'); ?>"
-                                     class="hs-accordion-content <?php echo esc_attr($is_first ? '' : 'hidden'); ?> w-full overflow-hidden transition-[height] duration-300"
+                                     class="clesk-accordion-content <?php echo esc_attr($is_first ? '' : 'hidden'); ?> w-full overflow-hidden transition-[height] duration-300"
                                      role="region"
                                      aria-labelledby="<?php echo esc_attr($item_id); ?>">
                                     <div class="pb-4 px-4 text-[var(--color-text)] leading-relaxed">
@@ -113,17 +113,17 @@ $accordion_id = 'clesk-faq-' . uniqid();
                         $wrapper_class = 'border border-[var(--color-border)] rounded-lg';
                     }
                 ?>
-                    <div class="hs-accordion <?php echo esc_attr($is_first ? 'active' : ''); ?> <?php echo esc_attr($wrapper_class); ?> <?php echo esc_attr(($style !== 'two-columns') ? 'border-b border-[var(--color-border)]' : ''); ?>"
+                    <div class="clesk-accordion-item <?php echo esc_attr($is_first ? 'active' : ''); ?> <?php echo esc_attr($wrapper_class); ?> <?php echo esc_attr(($style !== 'two-columns') ? 'border-b border-[var(--color-border)]' : ''); ?>"
                          id="<?php echo esc_attr($item_id); ?>">
-                        <button class="hs-accordion-toggle py-4 px-4 inline-flex items-center justify-between gap-x-3 w-full font-semibold text-left text-[var(--color-heading)] hover:text-[var(--color-primary)] transition-colors"
+                        <button class="clesk-accordion-toggle py-4 px-4 inline-flex items-center justify-between gap-x-3 w-full font-semibold text-left text-[var(--color-heading)] hover:text-[var(--color-primary)] transition-colors"
                                 aria-expanded="<?php echo esc_attr($is_first ? 'true' : 'false'); ?>"
                                 aria-controls="<?php echo esc_attr($item_id . '-content'); ?>">
                             <?php echo esc_html($item['faq_question']); ?>
-                            <svg class="hs-accordion-active:hidden block shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-                            <svg class="hs-accordion-active:block hidden shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+                            <svg class="clesk-icon-open <?php echo esc_attr($is_first ? 'hidden' : ''); ?> shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                            <svg class="clesk-icon-close <?php echo esc_attr($is_first ? '' : 'hidden'); ?> shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
                         </button>
                         <div id="<?php echo esc_attr($item_id . '-content'); ?>"
-                             class="hs-accordion-content <?php echo esc_attr($is_first ? '' : 'hidden'); ?> w-full overflow-hidden transition-[height] duration-300"
+                             class="clesk-accordion-content <?php echo esc_attr($is_first ? '' : 'hidden'); ?> w-full overflow-hidden transition-[height] duration-300"
                              role="region"
                              aria-labelledby="<?php echo esc_attr($item_id); ?>">
                             <div class="pb-4 px-4 text-[var(--color-text)] leading-relaxed">

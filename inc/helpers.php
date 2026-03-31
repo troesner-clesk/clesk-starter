@@ -84,6 +84,49 @@ function clesk_filter_variant_choices($choices, $component_key) {
 }
 
 /**
+ * Convert YouTube/Vimeo URLs to privacy-friendly embed URLs
+ *
+ * YouTube uses youtube-nocookie.com (no tracking cookies).
+ * Vimeo uses player.vimeo.com (standard embed, no additional tracking).
+ *
+ * @param string $url The video URL
+ * @param string $source 'youtube' or 'vimeo'
+ * @return string The privacy-friendly embed URL
+ */
+function clesk_get_embed_url($url, $source) {
+    if ($source === 'youtube') {
+        preg_match('/(?:v=|\/embed\/|youtu\.be\/)([a-zA-Z0-9_-]+)/', $url, $m);
+        return !empty($m[1]) ? 'https://www.youtube-nocookie.com/embed/' . $m[1] : '';
+    } elseif ($source === 'vimeo') {
+        preg_match('/vimeo\.com\/(\d+)/', $url, $m);
+        return !empty($m[1]) ? 'https://player.vimeo.com/video/' . $m[1] : '';
+    }
+    return $url;
+}
+
+/**
+ * Get allowed HTML tags for safe iframe rendering (Maps, Videos)
+ *
+ * Used with wp_kses() to sanitize user-provided embed codes.
+ *
+ * @return array Allowed tags array for wp_kses()
+ */
+function clesk_get_allowed_iframe_tags() {
+    return array(
+        'iframe' => array(
+            'src'             => true,
+            'width'           => true,
+            'height'          => true,
+            'style'           => true,
+            'frameborder'     => true,
+            'allowfullscreen' => true,
+            'loading'         => true,
+            'referrerpolicy'  => true,
+        ),
+    );
+}
+
+/**
  * Get social icon SVG paths
  *
  * @return array Platform => SVG inner markup
@@ -96,6 +139,7 @@ function clesk_get_social_icons() {
         'xing'      => '<path d="M5.77 16.8c.37 0 .68-.22.94-.67 2.39-4.23 3.63-6.44 3.73-6.61L8.07 5.38C7.82 4.96 7.53 4.73 7.11 4.73H3.64c-.22 0-.38.07-.46.22-.11.14-.1.32.01.54l2.34 4.05s0 .01 0 .01L1.85 16.02c-.14.28-.14.52 0 .52.1.17.25.25.45.25z"/><path d="M21.69 0h-3.5c-.38 0-.69.22-.93.65C12.3 9.45 9.73 14 9.56 14.31l4.92 9.02c.17.31.44.67.96.67h3.47c.15 0 .26-.04.33-.13.1-.16.09-.34-.01-.54l-4.88-8.88v-.01L22.16.75c.11-.2.11-.38 0-.54C22.07.07 21.9 0 21.69 0"/>',
         'twitter'   => '<path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>',
         'youtube'   => '<path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>',
+        'github'    => '<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>',
     );
 }
 

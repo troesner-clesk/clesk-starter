@@ -20,7 +20,11 @@ if (!defined('ABSPATH')) exit;
                     </a>
                 <?php endif; ?>
                 <p class="mt-1 text-sm text-[var(--color-text-muted)]">
-                    <?php echo esc_html(get_bloginfo('description')); ?>
+                    <?php
+                    $desc = get_bloginfo('description');
+                    $desc = str_replace('Clesk Digital GmbH', '<a href="https://clesk.de" target="_blank" rel="noopener" class="underline hover:text-[var(--color-primary)]">Clesk Digital GmbH</a>', $desc);
+                    echo wp_kses($desc, array('a' => array('href' => array(), 'target' => array(), 'rel' => array(), 'class' => array())));
+                    ?>
                 </p>
             </div>
 

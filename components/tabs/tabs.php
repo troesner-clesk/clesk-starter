@@ -40,10 +40,9 @@ $placeholder_4_3 = get_template_directory_uri() . '/assets/images/placeholder-4-
                 $is_first = ($index === 0);
             ?>
                 <button type="button"
-                        class="hs-tab-active:bg-[var(--color-primary)] hs-tab-active:text-white py-3 px-5 inline-flex items-center gap-x-2 text-sm font-medium text-center rounded-lg text-[var(--color-text)] bg-[var(--color-surface)] hover:bg-[var(--color-primary-light)] transition-colors duration-200<?php echo $is_first ? ' active' : ''; ?>"
+                        class="py-3 px-5 inline-flex items-center gap-x-2 text-sm font-medium text-center rounded-lg text-[var(--color-text)] bg-[var(--color-surface)] hover:bg-[var(--color-primary-light)] transition-colors duration-200<?php echo $is_first ? ' active' : ''; ?>"
                         id="<?php echo esc_attr($tab_id); ?>"
                         aria-selected="<?php echo $is_first ? 'true' : 'false'; ?>"
-                        data-hs-tab="#<?php echo esc_attr($panel_id); ?>"
                         aria-controls="<?php echo esc_attr($panel_id); ?>"
                         role="tab">
                     <?php echo esc_html($tab['tab_title']); ?>
