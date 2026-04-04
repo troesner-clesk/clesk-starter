@@ -46,11 +46,11 @@ function clesk_get_all_components() {
             'available'   => true,
         ),
         'text_image' => array(
-            'label'       => 'Text + Image',
-            'description' => 'Two-column section with text and image',
+            'label'       => 'Text + Image / Video',
+            'description' => 'Two-column section with text and image or video (YouTube or media library)',
             'variants'    => array(
-                'image-left'  => 'Image Left',
-                'image-right' => 'Image Right',
+                'image-left'  => 'Media Left',
+                'image-right' => 'Media Right',
             ),
             'available'   => true,
         ),

@@ -146,21 +146,21 @@ if (function_exists('acf_add_local_field_group')) {
         ),
     );
 
-    // --- TEXT + IMAGE ---
+    // --- TEXT + IMAGE / VIDEO ---
     $all_layouts['text_image'] = array(
         'key' => 'layout_text_image',
         'name' => 'text_image',
-        'label' => 'Text + Image',
+        'label' => 'Text + Image / Video',
         'display' => 'block',
         'sub_fields' => array(
             array(
                 'key' => 'field_ti_layout',
-                'label' => 'Image Position',
+                'label' => 'Media Position',
                 'name' => 'ti_layout',
                 'type' => 'select',
                 'choices' => array(
-                    'image-left'  => 'Image Left',
-                    'image-right' => 'Image Right',
+                    'image-left'  => 'Media Left',
+                    'image-right' => 'Media Right',
                 ),
                 'default_value' => 'image-right',
             ),
@@ -179,11 +179,101 @@ if (function_exists('acf_add_local_field_group')) {
                 'delay' => 1,
             ),
             array(
+                'key' => 'field_ti_media_type',
+                'label' => 'Media Type',
+                'name' => 'ti_media_type',
+                'type' => 'select',
+                'choices' => array(
+                    'image' => 'Image',
+                    'video' => 'Video',
+                ),
+                'default_value' => 'image',
+            ),
+            array(
                 'key' => 'field_ti_image',
                 'label' => 'Image',
                 'name' => 'ti_image',
                 'type' => 'image',
                 'return_format' => 'array',
+                'conditional_logic' => array(
+                    array(
+                        array('field' => 'field_ti_media_type', 'operator' => '==', 'value' => 'image'),
+                    ),
+                ),
+            ),
+            array(
+                'key' => 'field_ti_video_source',
+                'label' => 'Video Source',
+                'name' => 'ti_video_source',
+                'type' => 'select',
+                'choices' => array(
+                    'file'    => 'Media Library (self-hosted)',
+                    'youtube' => 'YouTube',
+                ),
+                'default_value' => 'file',
+                'conditional_logic' => array(
+                    array(
+                        array('field' => 'field_ti_media_type', 'operator' => '==', 'value' => 'video'),
+                    ),
+                ),
+            ),
+            array(
+                'key' => 'field_ti_video_file',
+                'label' => 'Video File',
+                'name' => 'ti_video_file',
+                'type' => 'file',
+                'return_format' => 'array',
+                'mime_types' => 'mp4,webm,mov',
+                'conditional_logic' => array(
+                    array(
+                        array('field' => 'field_ti_media_type', 'operator' => '==', 'value' => 'video'),
+                        array('field' => 'field_ti_video_source', 'operator' => '==', 'value' => 'file'),
+                    ),
+                ),
+            ),
+            array(
+                'key' => 'field_ti_video_poster',
+                'label' => 'Video Poster (optional)',
+                'name' => 'ti_video_poster',
+                'type' => 'image',
+                'return_format' => 'array',
+                'instructions' => 'Displayed before the video plays.',
+                'conditional_logic' => array(
+                    array(
+                        array('field' => 'field_ti_media_type', 'operator' => '==', 'value' => 'video'),
+                        array('field' => 'field_ti_video_source', 'operator' => '==', 'value' => 'file'),
+                    ),
+                ),
+            ),
+            array(
+                'key' => 'field_ti_video_url',
+                'label' => 'YouTube URL',
+                'name' => 'ti_video_url',
+                'type' => 'url',
+                'placeholder' => 'https://www.youtube.com/watch?v=...',
+                'conditional_logic' => array(
+                    array(
+                        array('field' => 'field_ti_media_type', 'operator' => '==', 'value' => 'video'),
+                        array('field' => 'field_ti_video_source', 'operator' => '==', 'value' => 'youtube'),
+                    ),
+                ),
+            ),
+            array(
+                'key' => 'field_ti_video_aspect_ratio',
+                'label' => 'Video Aspect Ratio',
+                'name' => 'ti_video_aspect_ratio',
+                'type' => 'select',
+                'choices' => array(
+                    '16-9' => '16:9',
+                    '4-3'  => '4:3',
+                    '1-1'  => '1:1',
+                ),
+                'default_value' => '16-9',
+                'conditional_logic' => array(
+                    array(
+                        array('field' => 'field_ti_media_type', 'operator' => '==', 'value' => 'video'),
+                    ),
+                ),
             ),
             array(
                 'key' => 'field_ti_cta_text',
