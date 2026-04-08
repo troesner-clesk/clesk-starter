@@ -8,8 +8,9 @@ if (!defined('ABSPATH')) exit;
 
 $style       = get_sub_field('banner_style') ?: 'info';
 $text        = get_sub_field('bn_text');
-$cta_text    = get_sub_field('bn_cta_text');
-$cta_link    = get_sub_field('bn_cta_link');
+$cta_text     = get_sub_field('bn_cta_text');
+$cta_link     = get_sub_field('bn_cta_link');
+$cta_link_opts = get_sub_field('bn_cta_link_opts');
 $dismissible = get_sub_field('bn_dismissible');
 $icon_type   = get_sub_field('bn_icon') ?: 'none';
 
@@ -66,12 +67,12 @@ switch ($style) {
             <?php if ($cta_text && $cta_link) : ?>
                 <?php if ($style === 'promo') : ?>
                     <a href="<?php echo esc_url($cta_link); ?>"
-                       class="clesk-btn-secondary inline-flex items-center text-sm px-4 py-1.5 rounded-lg border border-white/30 text-white hover:bg-white/10 transition-colors duration-200 whitespace-nowrap">
+                       class="clesk-btn-secondary inline-flex items-center text-sm px-4 py-1.5 rounded-lg border border-white/30 text-white hover:bg-white/10 transition-colors duration-200 whitespace-nowrap"<?php echo clesk_link_attrs($cta_link_opts); ?>>
                         <?php echo esc_html($cta_text); ?>
                     </a>
                 <?php else : ?>
                     <a href="<?php echo esc_url($cta_link); ?>"
-                       class="text-sm font-semibold underline hover:no-underline whitespace-nowrap">
+                       class="text-sm font-semibold underline hover:no-underline whitespace-nowrap"<?php echo clesk_link_attrs($cta_link_opts); ?>>
                         <?php echo esc_html($cta_text); ?>
                     </a>
                 <?php endif; ?>

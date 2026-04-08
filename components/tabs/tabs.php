@@ -129,11 +129,12 @@ $placeholder_4_3 = get_template_directory_uri() . '/assets/images/placeholder-4-
                     <?php endif; ?>
 
                     <?php
-                    $cta_text = $tab['tab_cta_text'] ?? '';
-                    $cta_link = $tab['tab_cta_link'] ?? '';
+                    $cta_text      = $tab['tab_cta_text'] ?? '';
+                    $cta_link      = $tab['tab_cta_link'] ?? '';
+                    $cta_link_opts = $tab['tab_cta_link_opts'] ?? array();
                     if ($cta_text && $cta_link) : ?>
                         <div class="mt-8 text-center">
-                            <a href="<?php echo esc_url($cta_link); ?>" class="clesk-btn-primary">
+                            <a href="<?php echo esc_url($cta_link); ?>" class="clesk-btn-primary"<?php echo clesk_link_attrs($cta_link_opts); ?>>
                                 <?php echo esc_html($cta_text); ?>
                             </a>
                         </div>

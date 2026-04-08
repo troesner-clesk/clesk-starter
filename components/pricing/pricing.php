@@ -49,9 +49,10 @@ switch ($style) {
                 $period      = $plan['pr_plan_period'] ?? '';
                 $description = $plan['pr_plan_description'] ?? '';
                 $features    = $plan['pr_plan_features'] ?? '';
-                $cta_text    = $plan['pr_plan_cta_text'] ?? '';
-                $cta_link    = $plan['pr_plan_cta_link'] ?? '';
-                $highlighted = !empty($plan['pr_plan_highlighted']);
+                $cta_text      = $plan['pr_plan_cta_text'] ?? '';
+                $cta_link      = $plan['pr_plan_cta_link'] ?? '';
+                $cta_link_opts = $plan['pr_plan_cta_link_opts'] ?? array();
+                $highlighted   = !empty($plan['pr_plan_highlighted']);
 
                 $feature_list = $features ? array_filter(array_map('trim', explode("\n", $features))) : [];
 
@@ -115,7 +116,7 @@ switch ($style) {
 
                     <?php if ($cta_text && $cta_link) : ?>
                         <div class="mt-8">
-                            <a href="<?php echo esc_url($cta_link); ?>" class="<?php echo esc_attr($btn_classes); ?>">
+                            <a href="<?php echo esc_url($cta_link); ?>" class="<?php echo esc_attr($btn_classes); ?>"<?php echo clesk_link_attrs($cta_link_opts); ?>>
                                 <?php echo esc_html($cta_text); ?>
                             </a>
                         </div>

@@ -12,6 +12,7 @@ $text             = get_sub_field('hero_text');
 $image            = get_sub_field('hero_image');
 $cta_text         = get_sub_field('hero_cta_text');
 $cta_link         = get_sub_field('hero_cta_link');
+$cta_link_opts    = get_sub_field('hero_cta_link_opts');
 $style            = get_sub_field('hero_style') ?: 'centered';
 $carousel_images  = get_sub_field('hero_carousel_images');
 $video_url        = get_sub_field('hero_video_url');
@@ -47,7 +48,7 @@ if (!$headline && !$subheadline && !$text && !$image && !$carousel_images && !$v
 
                     <?php if ($cta_text && $cta_link) : ?>
                         <div class="mt-6">
-                            <a href="<?php echo esc_url($cta_link); ?>" class="inline-block rounded-lg bg-white px-6 py-3 text-sm font-semibold text-gray-900 shadow-sm hover:bg-white/90 transition-colors">
+                            <a href="<?php echo esc_url($cta_link); ?>" class="inline-block rounded-lg bg-white px-6 py-3 text-sm font-semibold text-gray-900 shadow-sm hover:bg-white/90 transition-colors"<?php echo clesk_link_attrs($cta_link_opts); ?>>
                                 <?php echo esc_html($cta_text); ?>
                             </a>
                         </div>
@@ -81,7 +82,7 @@ if (!$headline && !$subheadline && !$text && !$image && !$carousel_images && !$v
 
                 <?php if ($cta_text && $cta_link) : ?>
                     <div class="mt-8">
-                        <a href="<?php echo esc_url($cta_link); ?>" class="clesk-btn-primary">
+                        <a href="<?php echo esc_url($cta_link); ?>" class="clesk-btn-primary"<?php echo clesk_link_attrs($cta_link_opts); ?>>
                             <?php echo esc_html($cta_text); ?>
                         </a>
                     </div>
@@ -138,7 +139,7 @@ if (!$headline && !$subheadline && !$text && !$image && !$carousel_images && !$v
 
                 <?php if ($cta_text && $cta_link) : ?>
                     <div class="mt-8">
-                        <a href="<?php echo esc_url($cta_link); ?>" class="clesk-btn-primary">
+                        <a href="<?php echo esc_url($cta_link); ?>" class="clesk-btn-primary"<?php echo clesk_link_attrs($cta_link_opts); ?>>
                             <?php echo esc_html($cta_text); ?>
                         </a>
                     </div>
@@ -197,7 +198,7 @@ if (!$headline && !$subheadline && !$text && !$image && !$carousel_images && !$v
 
                     <?php if ($cta_text && $cta_link) : ?>
                         <div class="mt-8">
-                            <a href="<?php echo esc_url($cta_link); ?>" class="clesk-btn-primary">
+                            <a href="<?php echo esc_url($cta_link); ?>" class="clesk-btn-primary"<?php echo clesk_link_attrs($cta_link_opts); ?>>
                                 <?php echo esc_html($cta_text); ?>
                             </a>
                         </div>
@@ -238,7 +239,7 @@ if (!$headline && !$subheadline && !$text && !$image && !$carousel_images && !$v
 
                             <?php if ($cta_text && $cta_link) : ?>
                                 <div class="mt-8">
-                                    <a href="<?php echo esc_url($cta_link); ?>" class="clesk-btn-primary">
+                                    <a href="<?php echo esc_url($cta_link); ?>" class="clesk-btn-primary"<?php echo clesk_link_attrs($cta_link_opts); ?>>
                                         <?php echo esc_html($cta_text); ?>
                                     </a>
                                 </div>
@@ -275,7 +276,7 @@ if (!$headline && !$subheadline && !$text && !$image && !$carousel_images && !$v
 
                         <?php if ($cta_text && $cta_link) : ?>
                             <div class="mt-8">
-                                <a href="<?php echo esc_url($cta_link); ?>" class="clesk-btn-primary">
+                                <a href="<?php echo esc_url($cta_link); ?>" class="clesk-btn-primary"<?php echo clesk_link_attrs($cta_link_opts); ?>>
                                     <?php echo esc_html($cta_text); ?>
                                 </a>
                             </div>

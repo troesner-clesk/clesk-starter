@@ -143,6 +143,25 @@ if (function_exists('acf_add_local_field_group')) {
                 'type' => 'text',
                 'placeholder' => 'https://… or #anchor',
             ),
+            array(
+                'key' => 'field_hero_cta_link_opts',
+                'label' => 'Link Options',
+                'name' => 'hero_cta_link_opts',
+                'type' => 'checkbox',
+                'layout' => 'horizontal',
+                'choices' => array(
+                    'new_tab'  => 'Open in new tab',
+                    'nofollow' => 'Add rel="nofollow"',
+                ),
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field'    => 'field_hero_cta_link',
+                            'operator' => '!=empty',
+                        ),
+                    ),
+                ),
+            ),
         ),
     );
 
@@ -288,6 +307,25 @@ if (function_exists('acf_add_local_field_group')) {
                 'type' => 'text',
                 'placeholder' => 'https://… or #anchor',
             ),
+            array(
+                'key' => 'field_ti_cta_link_opts',
+                'label' => 'Link Options',
+                'name' => 'ti_cta_link_opts',
+                'type' => 'checkbox',
+                'layout' => 'horizontal',
+                'choices' => array(
+                    'new_tab'  => 'Open in new tab',
+                    'nofollow' => 'Add rel="nofollow"',
+                ),
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field'    => 'field_ti_cta_link',
+                            'operator' => '!=empty',
+                        ),
+                    ),
+                ),
+            ),
         ),
     );
 
@@ -336,6 +374,25 @@ if (function_exists('acf_add_local_field_group')) {
                 'placeholder' => 'https://… or #anchor',
             ),
             array(
+                'key' => 'field_cta_button_link_opts',
+                'label' => 'Link Options',
+                'name' => 'cta_button_link_opts',
+                'type' => 'checkbox',
+                'layout' => 'horizontal',
+                'choices' => array(
+                    'new_tab'  => 'Open in new tab',
+                    'nofollow' => 'Add rel="nofollow"',
+                ),
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field'    => 'field_cta_button_link',
+                            'operator' => '!=empty',
+                        ),
+                    ),
+                ),
+            ),
+            array(
                 'key' => 'field_cta_button_text_2',
                 'label' => 'Secondary Button Text',
                 'name' => 'cta_button_text_2',
@@ -347,6 +404,25 @@ if (function_exists('acf_add_local_field_group')) {
                 'name' => 'cta_button_link_2',
                 'type' => 'text',
                 'placeholder' => 'https://… or #anchor',
+            ),
+            array(
+                'key' => 'field_cta_button_link_2_opts',
+                'label' => 'Secondary Link Options',
+                'name' => 'cta_button_link_2_opts',
+                'type' => 'checkbox',
+                'layout' => 'horizontal',
+                'choices' => array(
+                    'new_tab'  => 'Open in new tab',
+                    'nofollow' => 'Add rel="nofollow"',
+                ),
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field'    => 'field_cta_button_link_2',
+                            'operator' => '!=empty',
+                        ),
+                    ),
+                ),
             ),
         ),
     );
@@ -520,6 +596,25 @@ if (function_exists('acf_add_local_field_group')) {
                 ),
             ),
             array(
+                'key' => 'field_features_cta_link_opts',
+                'label' => 'Link Options',
+                'name' => 'features_cta_link_opts',
+                'type' => 'checkbox',
+                'layout' => 'horizontal',
+                'choices' => array(
+                    'new_tab'  => 'Open in new tab',
+                    'nofollow' => 'Add rel="nofollow"',
+                ),
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field'    => 'field_features_cta_link',
+                            'operator' => '!=empty',
+                        ),
+                    ),
+                ),
+            ),
+            array(
                 'key' => 'field_features_items',
                 'label' => 'Features',
                 'name' => 'features_items',
@@ -617,6 +712,25 @@ if (function_exists('acf_add_local_field_group')) {
                 array('key' => 'field_lc_logo_image', 'label' => 'Logo', 'name' => 'lc_logo', 'type' => 'image', 'return_format' => 'array'),
                 array('key' => 'field_lc_logo_name', 'label' => 'Company Name', 'name' => 'lc_name', 'type' => 'text'),
                 array('key' => 'field_lc_logo_link', 'label' => 'Link', 'name' => 'lc_link', 'type' => 'url'),
+                array(
+                    'key' => 'field_lc_logo_link_opts',
+                    'label' => 'Link Options',
+                    'name' => 'lc_link_opts',
+                    'type' => 'checkbox',
+                    'layout' => 'horizontal',
+                    'choices' => array(
+                        'new_tab'  => 'Open in new tab',
+                        'nofollow' => 'Add rel="nofollow"',
+                    ),
+                    'conditional_logic' => array(
+                        array(
+                            array(
+                                'field'    => 'field_lc_logo_link',
+                                'operator' => '!=empty',
+                            ),
+                        ),
+                    ),
+                ),
             )),
         ),
     );
@@ -656,6 +770,25 @@ if (function_exists('acf_add_local_field_group')) {
             array('key' => 'field_bn_text', 'label' => 'Text', 'name' => 'bn_text', 'type' => 'text'),
             array('key' => 'field_bn_cta_text', 'label' => 'Button Text', 'name' => 'bn_cta_text', 'type' => 'text'),
             array('key' => 'field_bn_cta_link', 'label' => 'Button Link', 'name' => 'bn_cta_link', 'type' => 'text', 'placeholder' => 'https://… or #anchor'),
+            array(
+                'key' => 'field_bn_cta_link_opts',
+                'label' => 'Link Options',
+                'name' => 'bn_cta_link_opts',
+                'type' => 'checkbox',
+                'layout' => 'horizontal',
+                'choices' => array(
+                    'new_tab'  => 'Open in new tab',
+                    'nofollow' => 'Add rel="nofollow"',
+                ),
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field'    => 'field_bn_cta_link',
+                            'operator' => '!=empty',
+                        ),
+                    ),
+                ),
+            ),
             array('key' => 'field_bn_dismissible', 'label' => 'Dismissible', 'name' => 'bn_dismissible', 'type' => 'true_false', 'default_value' => 0),
         ),
     );
@@ -673,6 +806,25 @@ if (function_exists('acf_add_local_field_group')) {
                 array('key' => 'field_cg_card_text', 'label' => 'Text', 'name' => 'cg_text', 'type' => 'textarea'),
                 array('key' => 'field_cg_card_link_text', 'label' => 'Link Text', 'name' => 'cg_link_text', 'type' => 'text'),
                 array('key' => 'field_cg_card_link_url', 'label' => 'Link URL', 'name' => 'cg_link_url', 'type' => 'text', 'placeholder' => 'https://… or #anchor'),
+                array(
+                    'key' => 'field_cg_card_link_url_opts',
+                    'label' => 'Link Options',
+                    'name' => 'cg_link_url_opts',
+                    'type' => 'checkbox',
+                    'layout' => 'horizontal',
+                    'choices' => array(
+                        'new_tab'  => 'Open in new tab',
+                        'nofollow' => 'Add rel="nofollow"',
+                    ),
+                    'conditional_logic' => array(
+                        array(
+                            array(
+                                'field'    => 'field_cg_card_link_url',
+                                'operator' => '!=empty',
+                            ),
+                        ),
+                    ),
+                ),
                 array('key' => 'field_cg_card_badge', 'label' => 'Badge', 'name' => 'cg_badge', 'type' => 'text'),
             )),
         ),
@@ -692,6 +844,25 @@ if (function_exists('acf_add_local_field_group')) {
                 array('key' => 'field_team_member_bio', 'label' => 'Bio', 'name' => 'team_bio', 'type' => 'textarea'),
                 array('key' => 'field_team_member_email', 'label' => 'Email', 'name' => 'team_email', 'type' => 'text'),
                 array('key' => 'field_team_member_linkedin', 'label' => 'LinkedIn', 'name' => 'team_linkedin', 'type' => 'url'),
+                array(
+                    'key' => 'field_team_member_linkedin_opts',
+                    'label' => 'Link Options',
+                    'name' => 'team_linkedin_opts',
+                    'type' => 'checkbox',
+                    'layout' => 'horizontal',
+                    'choices' => array(
+                        'new_tab'  => 'Open in new tab',
+                        'nofollow' => 'Add rel="nofollow"',
+                    ),
+                    'conditional_logic' => array(
+                        array(
+                            array(
+                                'field'    => 'field_team_member_linkedin',
+                                'operator' => '!=empty',
+                            ),
+                        ),
+                    ),
+                ),
             )),
         ),
     );
@@ -740,6 +911,25 @@ if (function_exists('acf_add_local_field_group')) {
             array('key' => 'field_vid_overlay_text', 'label' => 'Overlay Text', 'name' => 'vid_overlay_text', 'type' => 'text', 'conditional_logic' => array(array(array('field' => 'field_vid_style', 'operator' => '==', 'value' => 'background')))),
             array('key' => 'field_vid_overlay_cta_text', 'label' => 'Overlay Button Text', 'name' => 'vid_overlay_cta_text', 'type' => 'text', 'conditional_logic' => array(array(array('field' => 'field_vid_style', 'operator' => '==', 'value' => 'background')))),
             array('key' => 'field_vid_overlay_cta_link', 'label' => 'Overlay Button Link', 'name' => 'vid_overlay_cta_link', 'type' => 'text', 'placeholder' => 'https://… or #anchor', 'conditional_logic' => array(array(array('field' => 'field_vid_style', 'operator' => '==', 'value' => 'background')))),
+            array(
+                'key' => 'field_vid_overlay_cta_link_opts',
+                'label' => 'Link Options',
+                'name' => 'vid_overlay_cta_link_opts',
+                'type' => 'checkbox',
+                'layout' => 'horizontal',
+                'choices' => array(
+                    'new_tab'  => 'Open in new tab',
+                    'nofollow' => 'Add rel="nofollow"',
+                ),
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field'    => 'field_vid_overlay_cta_link',
+                            'operator' => '!=empty',
+                        ),
+                    ),
+                ),
+            ),
             array('key' => 'field_vid_aspect_ratio', 'label' => 'Aspect Ratio', 'name' => 'vid_aspect_ratio', 'type' => 'select', 'choices' => array('16-9' => '16:9', '4-3' => '4:3', '21-9' => '21:9'), 'default_value' => '16-9'),
         ),
     );
@@ -773,6 +963,25 @@ if (function_exists('acf_add_local_field_group')) {
             array('key' => 'field_bt_show_author', 'label' => 'Show Author', 'name' => 'bt_show_author', 'type' => 'true_false', 'default_value' => 0),
             array('key' => 'field_bt_cta_text', 'label' => 'View All Text', 'name' => 'bt_cta_text', 'type' => 'text'),
             array('key' => 'field_bt_cta_link', 'label' => 'View All Link', 'name' => 'bt_cta_link', 'type' => 'text', 'placeholder' => 'https://… or #anchor'),
+            array(
+                'key' => 'field_bt_cta_link_opts',
+                'label' => 'Link Options',
+                'name' => 'bt_cta_link_opts',
+                'type' => 'checkbox',
+                'layout' => 'horizontal',
+                'choices' => array(
+                    'new_tab'  => 'Open in new tab',
+                    'nofollow' => 'Add rel="nofollow"',
+                ),
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field'    => 'field_bt_cta_link',
+                            'operator' => '!=empty',
+                        ),
+                    ),
+                ),
+            ),
         ),
     );
 
@@ -822,6 +1031,25 @@ if (function_exists('acf_add_local_field_group')) {
                 array('key' => 'field_pr_plan_features', 'label' => 'Features (one per line)', 'name' => 'pr_plan_features', 'type' => 'textarea'),
                 array('key' => 'field_pr_plan_cta_text', 'label' => 'Button Text', 'name' => 'pr_plan_cta_text', 'type' => 'text', 'default_value' => 'Get Started'),
                 array('key' => 'field_pr_plan_cta_link', 'label' => 'Button Link', 'name' => 'pr_plan_cta_link', 'type' => 'text', 'placeholder' => 'https://… or #anchor'),
+                array(
+                    'key' => 'field_pr_plan_cta_link_opts',
+                    'label' => 'Link Options',
+                    'name' => 'pr_plan_cta_link_opts',
+                    'type' => 'checkbox',
+                    'layout' => 'horizontal',
+                    'choices' => array(
+                        'new_tab'  => 'Open in new tab',
+                        'nofollow' => 'Add rel="nofollow"',
+                    ),
+                    'conditional_logic' => array(
+                        array(
+                            array(
+                                'field'    => 'field_pr_plan_cta_link',
+                                'operator' => '!=empty',
+                            ),
+                        ),
+                    ),
+                ),
                 array('key' => 'field_pr_plan_highlighted', 'label' => 'Highlighted', 'name' => 'pr_plan_highlighted', 'type' => 'true_false', 'default_value' => 0),
             )),
         ),
@@ -981,6 +1209,25 @@ if (function_exists('acf_add_local_field_group')) {
                     // --- CTA Button (both layouts) ---
                     array('key' => 'field_tabs_item_cta_text', 'label' => 'Button Text', 'name' => 'tab_cta_text', 'type' => 'text'),
                     array('key' => 'field_tabs_item_cta_link', 'label' => 'Button Link', 'name' => 'tab_cta_link', 'type' => 'text', 'placeholder' => 'https://… or #anchor'),
+                    array(
+                        'key' => 'field_tabs_item_cta_link_opts',
+                        'label' => 'Link Options',
+                        'name' => 'tab_cta_link_opts',
+                        'type' => 'checkbox',
+                        'layout' => 'horizontal',
+                        'choices' => array(
+                            'new_tab'  => 'Open in new tab',
+                            'nofollow' => 'Add rel="nofollow"',
+                        ),
+                        'conditional_logic' => array(
+                            array(
+                                array(
+                                    'field'    => 'field_tabs_item_cta_link',
+                                    'operator' => '!=empty',
+                                ),
+                            ),
+                        ),
+                    ),
                 ),
             ),
         ),

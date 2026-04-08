@@ -14,8 +14,9 @@ $category     = get_sub_field('bt_category');
 $show_date    = get_sub_field('bt_show_date');
 $show_excerpt = get_sub_field('bt_show_excerpt');
 $show_author  = get_sub_field('bt_show_author');
-$cta_text     = get_sub_field('bt_cta_text');
-$cta_link     = get_sub_field('bt_cta_link');
+$cta_text      = get_sub_field('bt_cta_text');
+$cta_link      = get_sub_field('bt_cta_link');
+$cta_link_opts = get_sub_field('bt_cta_link_opts');
 
 $placeholder  = get_template_directory_uri() . '/assets/images/placeholder-16-9.svg';
 
@@ -266,7 +267,7 @@ if (!$query->have_posts()) {
 
         <?php if ($cta_text && $cta_link) : ?>
             <div class="text-center mt-8">
-                <a href="<?php echo esc_url($cta_link); ?>" class="clesk-btn-primary">
+                <a href="<?php echo esc_url($cta_link); ?>" class="clesk-btn-primary"<?php echo clesk_link_attrs($cta_link_opts); ?>>
                     <?php echo esc_html($cta_text); ?>
                 </a>
             </div>

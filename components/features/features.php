@@ -10,9 +10,10 @@ $style       = get_sub_field('features_style') ?: 'grid-3';
 $headline    = get_sub_field('features_headline');
 $subheadline = get_sub_field('features_subheadline');
 $text        = get_sub_field('features_text');
-$cta_text    = get_sub_field('features_cta_text');
-$cta_link    = get_sub_field('features_cta_link');
-$items       = get_sub_field('features_items');
+$cta_text      = get_sub_field('features_cta_text');
+$cta_link      = get_sub_field('features_cta_link');
+$cta_link_opts = get_sub_field('features_cta_link_opts');
+$items         = get_sub_field('features_items');
 
 if (!$items) return;
 
@@ -42,7 +43,7 @@ $default_icons = array('blocks.svg', 'palette.svg', 'shield.svg', 'bolt.svg', 'c
 
                     <?php if ($cta_text && $cta_link) : ?>
                         <div class="mt-8">
-                            <a href="<?php echo esc_url($cta_link); ?>" class="group inline-flex items-center gap-2 text-[var(--color-primary)] font-semibold hover:gap-3 transition-all">
+                            <a href="<?php echo esc_url($cta_link); ?>" class="group inline-flex items-center gap-2 text-[var(--color-primary)] font-semibold hover:gap-3 transition-all"<?php echo clesk_link_attrs($cta_link_opts); ?>>
                                 <?php echo esc_html($cta_text); ?>
                                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
@@ -146,7 +147,7 @@ $default_icons = array('blocks.svg', 'palette.svg', 'shield.svg', 'bolt.svg', 'c
 
             <?php if ($cta_text && $cta_link) : ?>
                 <div class="mt-12 text-center">
-                    <a href="<?php echo esc_url($cta_link); ?>" class="clesk-btn-primary"><?php echo esc_html($cta_text); ?></a>
+                    <a href="<?php echo esc_url($cta_link); ?>" class="clesk-btn-primary"<?php echo clesk_link_attrs($cta_link_opts); ?>><?php echo esc_html($cta_text); ?></a>
                 </div>
             <?php endif; ?>
         </div>
@@ -244,7 +245,7 @@ $default_icons = array('blocks.svg', 'palette.svg', 'shield.svg', 'bolt.svg', 'c
 
             <?php if ($cta_text && $cta_link) : ?>
                 <div class="mt-12 text-center">
-                    <a href="<?php echo esc_url($cta_link); ?>" class="clesk-btn-primary"><?php echo esc_html($cta_text); ?></a>
+                    <a href="<?php echo esc_url($cta_link); ?>" class="clesk-btn-primary"<?php echo clesk_link_attrs($cta_link_opts); ?>><?php echo esc_html($cta_text); ?></a>
                 </div>
             <?php endif; ?>
 

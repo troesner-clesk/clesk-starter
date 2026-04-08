@@ -101,14 +101,19 @@
     color: var(--color-primary);
 }
 
-/* Transparent header: initial state nav link colors */
-.clesk-header--transparent:not(.clesk-header--scrolled) .clesk-desktop-menu .clesk-menu-item > a {
-    color: rgba(255, 255, 255, 0.9);
+/* Transparent header: initial state — auto-invert against background via
+   mix-blend-mode. Child themes can override both variables to pin a specific
+   color and disable the blend effect (e.g. on brand imagery where difference
+   blending looks uneven). */
+.clesk-header--transparent:not(.clesk-header--scrolled) .clesk-desktop-menu,
+.clesk-header--transparent:not(.clesk-header--scrolled) .clesk-mobile-toggle,
+.clesk-header--transparent:not(.clesk-header--scrolled) .clesk-header-logo-link {
+    color: var(--clesk-header-transparent-color, #fff);
+    mix-blend-mode: var(--clesk-header-transparent-blend, difference);
 }
 
 .clesk-header--transparent:not(.clesk-header--scrolled) .clesk-desktop-menu .clesk-menu-item > a:hover {
-    color: #fff;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(127, 127, 127, 0.15);
 }
 
 /* Transparent header: content offset */

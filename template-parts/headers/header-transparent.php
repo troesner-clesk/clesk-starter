@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) exit;
             <?php if (has_custom_logo()) : ?>
                 <?php the_custom_logo(); ?>
             <?php else : ?>
-                <a href="<?php echo esc_url(home_url('/')); ?>" class="text-xl font-bold text-white font-[var(--font-heading)] hover:text-white/80 transition-colors clesk-header-logo-link">
+                <a href="<?php echo esc_url(home_url('/')); ?>" class="text-xl font-bold font-[var(--font-heading)] transition-colors clesk-header-logo-link">
                     <?php echo esc_html(get_bloginfo('name')); ?>
                 </a>
             <?php endif; ?>
@@ -24,7 +24,7 @@ if (!defined('ABSPATH')) exit;
 
         <!-- Mobile menu button -->
         <button type="button"
-                class="clesk-mobile-toggle lg:hidden inline-flex items-center justify-center rounded-md p-2 text-white/80 hover:text-white hover:bg-white/10"
+                class="clesk-mobile-toggle lg:hidden inline-flex items-center justify-center rounded-md p-2"
                 aria-controls="clesk-mobile-menu"
                 aria-expanded="false"
                 onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'false' ? 'true' : 'false'); document.getElementById('clesk-mobile-menu').classList.toggle('hidden');">
@@ -50,7 +50,7 @@ if (!defined('ABSPATH')) exit;
     </nav>
 
     <!-- Mobile Navigation -->
-    <div id="clesk-mobile-menu" class="hidden lg:hidden border-t border-white/20">
+    <div id="clesk-mobile-menu" class="hidden lg:hidden border-t border-[color:var(--color-border,rgba(127,127,127,0.2))]">
         <div class="px-4 py-4 bg-[var(--color-background)]">
             <?php
             wp_nav_menu(array(

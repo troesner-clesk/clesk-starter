@@ -149,6 +149,43 @@ function clesk_get_social_icons() {
  * @param string $size CSS class for icon size (w-4 h-4, w-5 h-5)
  * @param string $btn_class Additional classes for the link wrapper
  */
+/**
+ * Build link target/rel attributes from an SCF checkbox options field.
+ *
+ * Usage in templates:
+ *   $opts = get_sub_field('cta_button_link_opts');
+ *   <a href="..." class="..."<?php echo clesk_link_attrs($opts); ?>>
+ *
+ * @param array|null $opts     Array of enabled options (e.g. ['new_tab', 'nofollow'])
+ * @param array      $defaults Fallback options if $opts is empty, e.g. ['new_tab' => true]
+ *                             Used by components that historically hardcoded new-tab behavior
+ *                             (logo-cloud, team LinkedIn) to preserve backward compatibility.
+ * @return string HTML attribute string starting with a leading space, or empty string.
+ */
+function clesk_link_attrs($opts, $defaults = array()) {
+    $opts = is_array($opts) ? $opts : array();
+
+    $new_tab  = in_array('new_tab', $opts, true)  || !empty($defaults['new_tab']);
+    $nofollow = in_array('nofollow', $opts, true) || !empty($defaults['nofollow']);
+
+    $attrs = '';
+    $rel   = array();
+
+    if ($new_tab) {
+        $attrs .= ' target="_blank"';
+        $rel[]  = 'noopener';
+        $rel[]  = 'noreferrer';
+    }
+    if ($nofollow) {
+        $rel[] = 'nofollow';
+    }
+    if (!empty($rel)) {
+        $attrs .= ' rel="' . esc_attr(implode(' ', $rel)) . '"';
+    }
+
+    return $attrs;
+}
+
 function clesk_render_social_icons($size = 'w-5 h-5', $btn_class = 'w-9 h-9 rounded-lg') {
     $social_links = get_option('clesk_social_links', array());
     if (empty(array_filter($social_links))) {

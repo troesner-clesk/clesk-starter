@@ -15,6 +15,7 @@ $thumbnail      = get_sub_field('vid_thumbnail');
 $overlay_text   = get_sub_field('vid_overlay_text');
 $overlay_cta    = get_sub_field('vid_overlay_cta_text');
 $overlay_link   = get_sub_field('vid_overlay_cta_link');
+$overlay_link_opts = get_sub_field('vid_overlay_cta_link_opts');
 $aspect_ratio   = get_sub_field('vid_aspect_ratio') ?: '16-9';
 
 $placeholder    = get_template_directory_uri() . '/assets/images/placeholder-16-9.svg';
@@ -143,7 +144,7 @@ $aspect_class = $aspect_classes[$aspect_ratio] ?? 'aspect-video';
 
             <?php if ($overlay_cta && $overlay_link) : ?>
                 <div class="mt-8">
-                    <a href="<?php echo esc_url($overlay_link); ?>" class="clesk-btn-primary">
+                    <a href="<?php echo esc_url($overlay_link); ?>" class="clesk-btn-primary"<?php echo clesk_link_attrs($overlay_link_opts); ?>>
                         <?php echo esc_html($overlay_cta); ?>
                     </a>
                 </div>

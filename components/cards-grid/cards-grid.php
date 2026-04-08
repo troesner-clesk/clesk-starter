@@ -46,12 +46,13 @@ $placeholder = get_template_directory_uri() . '/assets/images/placeholder-16-9.s
 
         <div class="<?php echo esc_attr($grid_classes); ?>">
             <?php foreach ($cards as $card) :
-                $image     = $card['cg_image'] ?? null;
-                $title     = $card['cg_title'] ?? '';
-                $text      = $card['cg_text'] ?? '';
-                $link_text = $card['cg_link_text'] ?? '';
-                $link_url  = $card['cg_link_url'] ?? '';
-                $badge     = $card['cg_badge'] ?? '';
+                $image         = $card['cg_image'] ?? null;
+                $title         = $card['cg_title'] ?? '';
+                $text          = $card['cg_text'] ?? '';
+                $link_text     = $card['cg_link_text'] ?? '';
+                $link_url      = $card['cg_link_url'] ?? '';
+                $link_url_opts = $card['cg_link_url_opts'] ?? array();
+                $badge         = $card['cg_badge'] ?? '';
             ?>
                 <div class="bg-[var(--color-surface)] rounded-xl overflow-hidden hover:shadow-lg transition-shadow">
                     <div class="relative">
@@ -85,7 +86,7 @@ $placeholder = get_template_directory_uri() . '/assets/images/placeholder-16-9.s
 
                         <?php if ($link_text && $link_url) : ?>
                             <a href="<?php echo esc_url($link_url); ?>"
-                               class="mt-4 inline-block text-[var(--color-primary)] font-medium hover:underline">
+                               class="mt-4 inline-block text-[var(--color-primary)] font-medium hover:underline"<?php echo clesk_link_attrs($link_url_opts); ?>>
                                 <?php echo esc_html($link_text); ?>
                             </a>
                         <?php endif; ?>

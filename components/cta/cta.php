@@ -9,10 +9,12 @@ if (!defined('ABSPATH')) exit;
 $style       = get_sub_field('cta_style') ?: 'simple';
 $headline    = get_sub_field('cta_headline');
 $text        = get_sub_field('cta_text');
-$button_text   = get_sub_field('cta_button_text');
-$button_link   = get_sub_field('cta_button_link');
-$button_text_2 = get_sub_field('cta_button_text_2');
-$button_link_2 = get_sub_field('cta_button_link_2');
+$button_text        = get_sub_field('cta_button_text');
+$button_link        = get_sub_field('cta_button_link');
+$button_link_opts   = get_sub_field('cta_button_link_opts');
+$button_text_2      = get_sub_field('cta_button_text_2');
+$button_link_2      = get_sub_field('cta_button_link_2');
+$button_link_2_opts = get_sub_field('cta_button_link_2_opts');
 
 // Style-dependent classes
 $section_classes = 'clesk-cta clesk-section';
@@ -59,11 +61,11 @@ switch ($style) {
 
             <?php if ($button_text && $button_link) : ?>
                 <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
-                    <a href="<?php echo esc_url($button_link); ?>" class="<?php echo esc_attr($btn_classes); ?>">
+                    <a href="<?php echo esc_url($button_link); ?>" class="<?php echo esc_attr($btn_classes); ?>"<?php echo clesk_link_attrs($button_link_opts); ?>>
                         <?php echo esc_html($button_text); ?>
                     </a>
                     <?php if ($button_text_2 && $button_link_2) : ?>
-                        <a href="<?php echo esc_url($button_link_2); ?>" class="<?php echo esc_attr($btn2_classes); ?>">
+                        <a href="<?php echo esc_url($button_link_2); ?>" class="<?php echo esc_attr($btn2_classes); ?>"<?php echo clesk_link_attrs($button_link_2_opts); ?>>
                             <?php echo esc_html($button_text_2); ?>
                         </a>
                     <?php endif; ?>

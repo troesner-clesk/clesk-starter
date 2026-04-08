@@ -37,11 +37,12 @@ $placeholder_logo = get_template_directory_uri() . '/assets/images/placeholder-4
                     $logo = $logo_item['lc_logo'] ?? null;
                     $name = $logo_item['lc_name'] ?? '';
                     $link = $logo_item['lc_link'] ?? '';
+                    $link_opts = $logo_item['lc_link_opts'] ?? array();
                     $img_url = $logo ? $logo['url'] : $placeholder_logo;
                     $img_alt = $logo ? $logo['alt'] : $name;
                 ?>
                     <?php if ($link) : ?>
-                        <a href="<?php echo esc_url($link); ?>" target="_blank" rel="noopener noreferrer" class="block">
+                        <a href="<?php echo esc_url($link); ?>" class="block"<?php echo clesk_link_attrs($link_opts, array('new_tab' => true)); ?>>
                     <?php endif; ?>
                         <img src="<?php echo esc_url($img_url); ?>"
                              alt="<?php echo esc_attr($img_alt); ?>"
@@ -60,12 +61,13 @@ $placeholder_logo = get_template_directory_uri() . '/assets/images/placeholder-4
                     $logo = $logo_item['lc_logo'] ?? null;
                     $name = $logo_item['lc_name'] ?? '';
                     $link = $logo_item['lc_link'] ?? '';
+                    $link_opts = $logo_item['lc_link_opts'] ?? array();
                     $img_url = $logo ? $logo['url'] : $placeholder_logo;
                     $img_alt = $logo ? $logo['alt'] : $name;
                 ?>
                     <div class="flex items-center justify-center p-4">
                         <?php if ($link) : ?>
-                            <a href="<?php echo esc_url($link); ?>" target="_blank" rel="noopener noreferrer" class="block">
+                            <a href="<?php echo esc_url($link); ?>" class="block"<?php echo clesk_link_attrs($link_opts, array('new_tab' => true)); ?>>
                         <?php endif; ?>
                             <img src="<?php echo esc_url($img_url); ?>"
                                  alt="<?php echo esc_attr($img_alt); ?>"
@@ -97,12 +99,13 @@ $placeholder_logo = get_template_directory_uri() . '/assets/images/placeholder-4
                             $logo = $logo_item['lc_logo'] ?? null;
                             $name = $logo_item['lc_name'] ?? '';
                             $link = $logo_item['lc_link'] ?? '';
+                    $link_opts = $logo_item['lc_link_opts'] ?? array();
                             $img_url = $logo ? $logo['url'] : $placeholder_logo;
                             $img_alt = $logo ? $logo['alt'] : $name;
                         ?>
                             <div class="flex-shrink-0 px-4">
                                 <?php if ($link) : ?>
-                                    <a href="<?php echo esc_url($link); ?>" target="_blank" rel="noopener noreferrer" class="block">
+                                    <a href="<?php echo esc_url($link); ?>" class="block"<?php echo clesk_link_attrs($link_opts, array('new_tab' => true)); ?>>
                                 <?php endif; ?>
                                     <img src="<?php echo esc_url($img_url); ?>"
                                          alt="<?php echo esc_attr($img_alt); ?>"

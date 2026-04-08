@@ -16,8 +16,9 @@ $video_file   = get_sub_field('ti_video_file');
 $video_poster = get_sub_field('ti_video_poster');
 $video_url    = get_sub_field('ti_video_url');
 $aspect_ratio = get_sub_field('ti_video_aspect_ratio') ?: '16-9';
-$cta_text     = get_sub_field('ti_cta_text');
-$cta_link     = get_sub_field('ti_cta_link');
+$cta_text      = get_sub_field('ti_cta_text');
+$cta_link      = get_sub_field('ti_cta_link');
+$cta_link_opts = get_sub_field('ti_cta_link_opts');
 
 $image_order = ($style === 'image-left') ? 'lg:order-first' : 'lg:order-last';
 
@@ -48,7 +49,7 @@ $aspect_class = isset($aspect_classes[$aspect_ratio]) ? $aspect_classes[$aspect_
 
                 <?php if ($cta_text && $cta_link) : ?>
                     <div class="mt-6">
-                        <a href="<?php echo esc_url($cta_link); ?>" class="clesk-btn-primary">
+                        <a href="<?php echo esc_url($cta_link); ?>" class="clesk-btn-primary"<?php echo clesk_link_attrs($cta_link_opts); ?>>
                             <?php echo esc_html($cta_text); ?>
                         </a>
                     </div>
