@@ -197,7 +197,15 @@ function clesk_render_social_icons($size = 'w-5 h-5', $btn_class = 'w-9 h-9 roun
         if (empty($url) || !isset($icons[$platform])) continue;
         echo '<a href="' . esc_url($url) . '" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center ' . esc_attr($btn_class) . ' text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors" aria-label="' . esc_attr(ucfirst($platform)) . '">';
         echo '<svg class="' . esc_attr($size) . '" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">';
-        echo $icons[$platform];
+        echo wp_kses($icons[$platform], array(
+            'path'     => array('d' => true, 'fill' => true, 'stroke' => true, 'fill-rule' => true, 'clip-rule' => true),
+            'rect'     => array('x' => true, 'y' => true, 'width' => true, 'height' => true, 'rx' => true, 'ry' => true),
+            'circle'   => array('cx' => true, 'cy' => true, 'r' => true),
+            'line'     => array('x1' => true, 'y1' => true, 'x2' => true, 'y2' => true),
+            'polygon'  => array('points' => true),
+            'polyline' => array('points' => true),
+            'g'        => array('fill' => true, 'stroke' => true),
+        ));
         echo '</svg></a>';
     }
     echo '</div>';

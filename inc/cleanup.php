@@ -218,6 +218,9 @@ function clesk_sanitize_svg_upload($file) {
     // Strip <use> elements referencing external resources
     $content = preg_replace('/<use[^>]+href\s*=\s*["\'](?!#)[^"\']*["\'][^>]*\/?>/i', '', $content);
 
+    // Strip <use> elements with external xlink:href (SVG 1.1)
+    $content = preg_replace('/<use[^>]+xlink:href\s*=\s*["\'](?!#)[^"\']*["\'][^>]*\/?>/i', '', $content);
+
     file_put_contents($file['tmp_name'], $content);
     return $file;
 }

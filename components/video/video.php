@@ -86,7 +86,7 @@ $aspect_class = $aspect_classes[$aspect_ratio] ?? 'aspect-video';
                  <?php if ($source === 'self-hosted' && $url) : ?>
                      onclick="this.outerHTML='<video class=\'w-full <?php echo esc_attr($aspect_class); ?> rounded-xl\' controls autoplay><source src=\'<?php echo esc_url($url); ?>\' type=\'video/mp4\'></video>'"
                  <?php elseif ($embed_url) : ?>
-                     onclick="this.outerHTML='<div class=\'rounded-xl overflow-hidden <?php echo esc_attr($aspect_class); ?>\'><iframe src=\'<?php echo esc_url($embed_url); ?>?autoplay=1\' class=\'w-full h-full\' frameborder=\'0\' allow=\'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\' allowfullscreen></iframe></div>'"
+                     onclick="this.outerHTML='<div class=\'rounded-xl overflow-hidden <?php echo esc_attr($aspect_class); ?>\'><iframe src=\'<?php echo esc_url($embed_url . '?autoplay=1'); ?>\' class=\'w-full h-full\' frameborder=\'0\' allow=\'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\' allowfullscreen></iframe></div>'"
                  <?php endif; ?>>
 
                 <img src="<?php echo esc_url($thumbnail_url); ?>"

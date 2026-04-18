@@ -17,7 +17,7 @@ get_header(); ?>
             ?>
             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                 <header class="entry-header mb-8">
-                    <h1 class="clesk-heading-1"><?php the_title(); ?></h1>
+                    <h1 class="clesk-heading-1"><?php echo esc_html(get_the_title()); ?></h1>
                 </header>
                 <div class="entry-content clesk-body-text prose max-w-none">
                     <?php the_content(); ?>
