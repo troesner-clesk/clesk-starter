@@ -53,6 +53,7 @@
         h3 { @apply text-xl font-bold text-[var(--color-heading)] mt-6 mb-2; }
         h4 { @apply text-lg font-semibold text-[var(--color-heading)] mt-4 mb-2; }
         p + p { @apply mt-4; }
+        :is(ul, ol) + :is(p, h3, h4) { @apply mt-3.5; }
         a { @apply text-[var(--color-primary)] hover:underline; }
         strong { @apply font-semibold; }
     }

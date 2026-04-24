@@ -1189,6 +1189,36 @@ if (function_exists('acf_add_local_field_group')) {
                         ),
                     ),
                     array(
+                        'key' => 'field_tabs_item_heading',
+                        'label' => 'Überschrift (H3)',
+                        'name' => 'tab_heading',
+                        'type' => 'text',
+                        'conditional_logic' => array(
+                            array(
+                                array(
+                                    'field' => 'field_tabs_item_layout',
+                                    'operator' => '==',
+                                    'value' => 'image-text',
+                                ),
+                            ),
+                        ),
+                    ),
+                    array(
+                        'key' => 'field_tabs_item_subheading',
+                        'label' => 'Unterüberschrift (H4)',
+                        'name' => 'tab_subheading',
+                        'type' => 'text',
+                        'conditional_logic' => array(
+                            array(
+                                array(
+                                    'field' => 'field_tabs_item_layout',
+                                    'operator' => '==',
+                                    'value' => 'image-text',
+                                ),
+                            ),
+                        ),
+                    ),
+                    array(
                         'key' => 'field_tabs_item_text',
                         'label' => 'Text',
                         'name' => 'tab_text',

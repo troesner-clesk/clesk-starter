@@ -100,14 +100,27 @@ $placeholder_4_3 = get_template_directory_uri() . '/assets/images/placeholder-4-
 
                     <?php elseif ($layout === 'image-text') : ?>
                         <?php
-                        $image    = $tab['tab_image'] ?? null;
-                        $position = $tab['tab_image_position'] ?? 'left';
-                        $text     = $tab['tab_text'] ?? '';
+                        $image      = $tab['tab_image'] ?? null;
+                        $position   = $tab['tab_image_position'] ?? 'left';
+                        $text       = $tab['tab_text'] ?? '';
+                        $heading    = $tab['tab_heading'] ?? '';
+                        $subheading = $tab['tab_subheading'] ?? '';
+                        $has_head   = $heading || $subheading;
                         ?>
                         <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                             <div class="<?php echo $position === 'left' ? 'lg:order-last' : 'lg:order-first'; ?>">
+                                <?php if ($heading) : ?>
+                                    <h3 class="text-2xl font-bold text-[var(--color-heading)]">
+                                        <?php echo esc_html($heading); ?>
+                                    </h3>
+                                <?php endif; ?>
+                                <?php if ($subheading) : ?>
+                                    <h4 class="text-lg font-medium text-[var(--color-text-muted)] <?php echo $heading ? 'mt-1' : ''; ?>">
+                                        <?php echo esc_html($subheading); ?>
+                                    </h4>
+                                <?php endif; ?>
                                 <?php if ($text) : ?>
-                                    <div class="clesk-body-text">
+                                    <div class="clesk-body-text <?php echo $has_head ? 'mt-4' : ''; ?>">
                                         <?php echo wp_kses_post($text); ?>
                                     </div>
                                 <?php endif; ?>
