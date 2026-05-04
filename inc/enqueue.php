@@ -54,3 +54,43 @@ function clesk_enqueue_assets() {
     }
 }
 add_action('wp_enqueue_scripts', 'clesk_enqueue_assets');
+
+/**
+ * Auto-version theme assets via filemtime()
+ *
+ * Appends ?v=<filemtime> to every stylesheet/script src that lives under the
+ * active parent or child theme directory. Solves stale-CSS issues for child
+ * themes that enqueue without their own filemtime() calls.
+ *
+ * Disable via: add_filter('clesk_asset_versioning', '__return_false');
+ */
+function clesk_asset_versioning($src) {
+    if (!apply_filters('clesk_asset_versioning', true)) return $src;
+    if (empty($src) || !is_string($src)) return $src;
+
+    $stylesheet_uri = get_stylesheet_directory_uri();
+    $template_uri   = get_template_directory_uri();
+
+    $base_uri = null;
+    $base_dir = null;
+    if (strpos($src, $stylesheet_uri) === 0) {
+        $base_uri = $stylesheet_uri;
+        $base_dir = get_stylesheet_directory();
+    } elseif (strpos($src, $template_uri) === 0) {
+        $base_uri = $template_uri;
+        $base_dir = get_template_directory();
+    } else {
+        return $src;
+    }
+
+    $clean    = strtok($src, '?');
+    $relative = substr($clean, strlen($base_uri));
+    $filesys  = $base_dir . $relative;
+
+    if (file_exists($filesys)) {
+        return $clean . '?v=' . filemtime($filesys);
+    }
+    return $src;
+}
+add_filter('style_loader_src',  'clesk_asset_versioning', 99999);
+add_filter('script_loader_src', 'clesk_asset_versioning', 99999);

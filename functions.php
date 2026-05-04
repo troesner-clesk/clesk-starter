@@ -33,3 +33,6 @@ require_once get_template_directory() . '/inc/class-clesk-mobile-walker.php';
 
 // CF7 auto-forms
 require_once get_template_directory() . '/inc/cf7-auto-forms.php';
+
+// JSON-LD baseline (Organization, WebSite, Article)
+require_once get_template_directory() . '/inc/jsonld.php';
