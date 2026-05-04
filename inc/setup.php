@@ -123,3 +123,38 @@ function clesk_scf_admin_notice() {
     <?php
 }
 add_action('admin_notices', 'clesk_scf_admin_notice');
+
+/**
+ * Add hero variant body classes
+ *
+ * Inspects the first flex content row on the queried object and adds:
+ *   - clesk-hero--<variant>     (e.g. clesk-hero--centered, clesk-hero--text-on-image)
+ *   - has-dark-hero             (when hero overlays a media background)
+ *
+ * Lets CSS / JS adapt to hero context without re-running the field query.
+ * Disable per-site via: add_filter('clesk_hero_body_class', '__return_false');
+ */
+function clesk_hero_body_class($classes) {
+    if (is_admin() || !is_singular()) return $classes;
+    if (!apply_filters('clesk_hero_body_class', true)) return $classes;
+    if (!function_exists('get_field')) return $classes;
+
+    $rows = get_field('clesk_components', get_queried_object_id());
+    if (!is_array($rows) || empty($rows)) return $classes;
+
+    $first = $rows[0];
+    if (!is_array($first) || ($first['acf_fc_layout'] ?? '') !== 'hero') return $classes;
+
+    $style = isset($first['hero_style']) ? sanitize_html_class((string) $first['hero_style']) : '';
+    if ($style !== '') {
+        $classes[] = 'clesk-hero--' . $style;
+    }
+
+    $dark_variants = apply_filters('clesk_hero_dark_variants', array('text-on-image', 'video-play', 'carousel'));
+    if (in_array($style, $dark_variants, true)) {
+        $classes[] = 'has-dark-hero';
+    }
+
+    return $classes;
+}
+add_filter('body_class', 'clesk_hero_body_class');
