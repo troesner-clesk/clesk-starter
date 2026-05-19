@@ -2,12 +2,16 @@
 
 A modular, component-based WordPress parent theme built for agencies. Ship client websites faster by overriding design tokens in a child theme — no parent theme changes needed.
 
+<p align="center">
+  <img src="assets/images/wordpress-right-meme.jpg" alt="We don't always use WordPress, but when we do, we do it right." width="420">
+</p>
+
 ## Features
 
 - **23 page builder components** with 67 style variants
 - **Design token system** via CSS Custom Properties — change colors, fonts, spacing, and more
 - **3 header + 3 footer variants** — configurable from the admin
-- **Child theme ready** — copy the boilerplate, set your tokens, done
+- **Child theme ready** — copy the [starter-child boilerplate](https://github.com/troesner-clesk/clesk-starter-child), set your tokens, done
 - **No build step for child themes** — plain CSS, no Node.js required
 - **SCF (Secure Custom Fields)** powered — free, ACF-compatible
 - **Tailwind CSS 3.4** — utility-first CSS with minimal output (~56 kB)
@@ -48,7 +52,7 @@ Full documentation available in the **[Wiki](https://github.com/troesner-clesk/c
 
 ## Child Theme
 
-For client projects, use the [Clesk Starter Child](https://github.com/troesner-clesk/clesk-starter-child) boilerplate. It lets you override design tokens with plain CSS — no build step needed.
+For client projects, use the [troesner-clesk/clesk-starter-child](https://github.com/troesner-clesk/clesk-starter-child) boilerplate. It lets you override design tokens with plain CSS — no build step needed.
 
 ```css
 /* custom.css in child theme */
@@ -126,7 +130,7 @@ GPL-2.0-or-later. See [LICENSE](LICENSE).
 
 ## Credits
 
-Built by [Clesk Digital](https://clesk.de).
+Built by [Clesk Digital GmbH](https://clesk.de).
 
 - [GitHub](https://github.com/troesner-clesk)
 - [LinkedIn](https://www.linkedin.com/in/tobias-roesner/)
