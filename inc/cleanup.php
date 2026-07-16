@@ -225,3 +225,19 @@ function clesk_sanitize_svg_upload($file) {
     return $file;
 }
 add_filter('wp_handle_upload_prefilter', 'clesk_sanitize_svg_upload');
+
+/**
+ * ─────────────────────────────────────────────
+ * 8. SKIP NEW BUNDLED THEMES ON CORE UPDATES
+ * Every major core update silently installs the year's new
+ * default theme (Twenty Twenty-X). Sites running this framework
+ * never use them – they only clutter the theme list and create
+ * permanent update noise. Existing themes are left untouched.
+ * Canonical place is wp-config.php; the guard keeps that override.
+ * Works here because the active theme loads before update_core()
+ * runs (dashboard, cron auto-updates and WP-CLI alike).
+ * ─────────────────────────────────────────────
+ */
+if (!defined('CORE_UPGRADE_SKIP_NEW_BUNDLED')) {
+    define('CORE_UPGRADE_SKIP_NEW_BUNDLED', true);
+}
