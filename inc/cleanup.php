@@ -241,3 +241,29 @@ add_filter('wp_handle_upload_prefilter', 'clesk_sanitize_svg_upload');
 if (!defined('CORE_UPGRADE_SKIP_NEW_BUNDLED')) {
     define('CORE_UPGRADE_SKIP_NEW_BUNDLED', true);
 }
+
+/**
+ * ─────────────────────────────────────────────
+ * 9. NEVER LEAK PHP ERRORS TO VISITORS
+ * Defense-in-depth: on hosts where display_errors is forced On,
+ * PHP notices/warnings get dumped into the page — sometimes before
+ * the doctype, breaking the whole document. Production error display
+ * belongs in wp-config.php; this guarantees the frontend stays clean
+ * even when the server or a plugin misconfigures it.
+ *
+ * Called directly (not hooked): the theme loads after plugins, so this
+ * runs before any template output/wp_head where such notices surface.
+ * Only display is suppressed — error_reporting and logging are left
+ * untouched. WP_DEBUG keeps errors visible so local dev is unaffected.
+ * ─────────────────────────────────────────────
+ */
+function clesk_suppress_frontend_error_display() {
+    if (is_admin()) {
+        return;
+    }
+    if (defined('WP_DEBUG') && WP_DEBUG) {
+        return;
+    }
+    @ini_set('display_errors', '0');
+}
+clesk_suppress_frontend_error_display();
